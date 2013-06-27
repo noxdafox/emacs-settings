@@ -1,0 +1,17 @@
+;; Typing helpers
+(electric-pair-mode t) ; pair parenthesis insertion
+(global-set-key (kbd ",")
+		(lambda() (interactive) (insert ", "))) ; add space after comma
+
+;; Auto Complete Mode
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-auto-start 3)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+
+;; Auto delete trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; TRAMP edit remote files
+(require 'tramp)
+(setq tramp-default-method "ssh")
