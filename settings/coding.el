@@ -56,7 +56,7 @@
 	   ad-do-it)))
 ;; refresh projects TAGS
 (defun er-refresh-etags ()
-  "Run etags through ctags-exuberant over all the projects."
+  "Run ctags-exuberant over all the projects."
   (interactive)
   (let ((tags-revert-without-query t))
     (shell-command
