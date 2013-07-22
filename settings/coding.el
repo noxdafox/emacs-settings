@@ -60,6 +60,6 @@
   (interactive)
   (let ((tags-revert-without-query t))
     (shell-command
-     (format "ctags-exuberant -e -R -f %s --languages=C,C++,JavaScript,Python --exclude='__init__.py'"
+     (format "ctags-exuberant -e -R -f %s --exclude='__init__.py'"
 	     tags-file-name))
     (visit-tags-table tags-file-name nil)))
