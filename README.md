@@ -4,7 +4,7 @@ emacs_settings
 Personal Emacs settings
 
 Dependencies
-============
+------------
 
 Auto Complete Mode
 Flymake
