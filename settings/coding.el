@@ -58,9 +58,8 @@
 (defun er-refresh-etags ()
   "Run etags through ctags-exuberant over all the projects."
   (interactive)
-  (let ((tags-revert-without-query t)
-	(tags-file (concat (file-name-as-directory projects-home-dir) "TAGS")))
+  (let ((tags-revert-without-query t))
     (shell-command
      (format "ctags-exuberant -e -R -f %s --languages=C,C++,JavaScript,Python --exclude='__init__.py'"
-	     tags-file))
-    (visit-tags-table tags-file nil)))
+	     tags-file-name))
+    (visit-tags-table tags-file-name nil)))

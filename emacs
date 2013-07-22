@@ -28,6 +28,3 @@
 (load "~/.emacs.d/settings/coding.el")
 (load "~/.emacs.d/settings/ide.el")
 (load "~/.emacs.d/settings/editing.el")
-
-;; set global variables
-(defvar projects-home-dir "~/development/")
