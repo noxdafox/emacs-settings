@@ -35,7 +35,7 @@
 (defun flymake-flake8-init ()
   "Create temporary copy of the buffer and run flake8 against it."
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		     'flymake-create-temp-inplace))
+		     'make-temp-file))
 	 (local-file (file-relative-name
 		      temp-file
 		      (file-name-directory buffer-file-name))))
