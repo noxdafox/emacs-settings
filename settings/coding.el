@@ -27,15 +27,17 @@
  '(flymake-warnline ((((class color)) (:underline "yellow")))))
 ;; flymake over TRAMP fix
 (setq flymake-run-in-place nil)
-;; Python flymake, specify Flake8 for Python
+;; redefine flymake code checkers list
 (when (load "flymake" t)
-  (add-to-list 'flymake-allowed-file-name-masks
-	       '("\\.py$" flymake-flake8-init)))
+  (setq flymake-allowed-file-name-masks
+    '(("\\.\\(?:c\\(?:pp\\|xx\\|\\+\\+\\)?\\|CC\\)\\'" flymake-simple-make-init)
+      ("\\.h\\'" flymake-master-make-header-init flymake-master-cleanup)
+      ("\\.py$" flymake-flake8-init))))
 ;; run flake8
 (defun flymake-flake8-init ()
   "Create temporary copy of the buffer and run flake8 against it."
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-		     'make-temp-file))
+		     'flymake-create-temp-copy))
 	 (local-file (file-relative-name
 		      temp-file
 		      (file-name-directory buffer-file-name))))
