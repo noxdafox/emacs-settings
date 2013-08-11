@@ -24,9 +24,6 @@
 ;; load .emacs.d files
 (add-to-list 'load-path "~/.emacs.d/")
 
-;; set TRAMP autosave directory
-(setq tramp-auto-save-directory "/tmp")
-
 ;; load custom settings
 (load "~/.emacs.d/settings/coding.el")
 (load "~/.emacs.d/settings/ide.el")

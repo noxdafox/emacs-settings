@@ -65,3 +65,10 @@
      (format "ctags-exuberant -e -R -f %s --exclude='__init__.py'"
 	     tags-file-name))
     (visit-tags-table tags-file-name nil)))
+
+;; TRAMP
+;; set TRAMP autosave directory to local temp
+(setq tramp-auto-save-directory "/tmp")
+;; disable backup for TRAMP buffers
+(add-to-list 'backup-directory-alist
+	     (cons tramp-file-name-regexp nil))
