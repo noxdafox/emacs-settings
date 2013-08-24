@@ -10,18 +10,28 @@
 ;;;; Javascript Mode
 (add-hook 'javascript-mode-hook
 	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+;;;; AUCTeX
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-PDF-mode t)
+(setq-default TeX-master nil)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook
+	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
-;; Typing helpers
-(electric-pair-mode t) ; add parenthesis in pair
+;; typing helpers
+(electric-pair-mode t)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
 
-;; Auto Complete Mode
+;; auto Complete Mode
 (require 'auto-complete-config)
 (ac-config-default)
 (setq ac-auto-start 3) ; start AC at third character
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 
-;; Auto delete trailing whitespaces
+;; auto delete trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; auto-save and backups
