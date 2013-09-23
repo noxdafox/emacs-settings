@@ -23,6 +23,7 @@
 
 ;; typing helpers
 (electric-pair-mode t)
+(setq mouse-yank-at-point t)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
 
 ;; auto Complete Mode
