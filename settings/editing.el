@@ -22,6 +22,7 @@
 	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ;; typing helpers
+(show-paren-mode t)
 (electric-pair-mode t)
 (setq mouse-yank-at-point t)
 (setq-default indent-tabs-mode nil)
