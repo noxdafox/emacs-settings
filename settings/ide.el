@@ -1,6 +1,13 @@
 ;; remove menu bar
 (menu-bar-mode -1)
 
+;; navigate through windows with shift + arrow keys
+(windmove-default-keybindings)
+
+;; uniquify buffer names
+(require 'uniquify)
+(uniquify-buffer-name-style (quote forward) nil (uniquify))
+
 ;; Tabbar
 (require 'tabbar)
 ;; Tabbar settings
