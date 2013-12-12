@@ -6,7 +6,7 @@
 
 ;; uniquify buffer names
 (require 'uniquify)
-(uniquify-buffer-name-style (quote forward) nil (uniquify))
+(custom-set-variables '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ;; Tabbar
 (require 'tabbar)
