@@ -27,6 +27,10 @@
 (setq mouse-yank-at-point t)
 (setq-default indent-tabs-mode nil)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+(global-set-key (kbd "M-<left>") 'move-region-up)
+(global-set-key (kbd "M-<right>") 'move-region-down)
 
 ;; auto Complete Mode
 (require 'auto-complete-config)
@@ -51,3 +55,31 @@
 (setq tramp-auto-save-directory temporary-file-directory)
 ;; disable backup for TRAMP buffers
 (setq tramp-backup-directory-alist backup-directory-alist)
+
+;; move lines and regions
+(defun move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2))
+(defun move-line-down ()
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1))
+(defun move-region (start end n)
+  "Move the current region up or down by N lines."
+  (interactive "r\np")
+  (let ((line-text (delete-and-extract-region start end)))
+    (forward-line n)
+    (let ((start (point)))
+      (insert line-text)
+      (setq deactivate-mark nil)
+      (set-mark start))))
+(defun move-region-up (start end n)
+  "Move the current line up by N lines."
+  (interactive "r\np")
+  (move-region start end (if (null n) -1 (- n))))
+(defun move-region-down (start end n)
+  "Move the current line down by N lines."
+  (interactive "r\np")
+  (move-region start end (if (null n) 1 n)))
