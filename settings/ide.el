@@ -1,5 +1,9 @@
-;; remove menu bar
-(menu-bar-mode -1)
+;; remove bars
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+
+;; F11 to toggle full screen
+(global-set-key [f11] 'toggle-fullscreen)
 
 ;; navigate through windows with shift + arrow keys
 (windmove-default-keybindings)
@@ -71,3 +75,11 @@ That is, a string used to represent it on the tab bar."
     (byte-compile-file buffer-file-name)))
 
 (add-hook 'after-save-hook 'byte-compile-current-buffer)
+
+(defun toggle-fullscreen ()
+  "Toggle full screen on X11"
+  (interactive)
+  (when (eq window-system 'x)
+    (set-frame-parameter
+     nil 'fullscreen
+     (when (not (frame-parameter nil 'fullscreen)) 'fullboth))))
