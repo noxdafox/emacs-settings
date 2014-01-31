@@ -31,6 +31,8 @@
 (global-set-key (kbd "M-<down>") 'move-line-down)
 (global-set-key (kbd "M-<left>") 'move-region-up)
 (global-set-key (kbd "M-<right>") 'move-region-down)
+(global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "M-p") 'backward-paragraph)
 
 ;; auto Complete Mode
 (require 'auto-complete-config)
