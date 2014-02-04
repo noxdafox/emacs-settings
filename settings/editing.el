@@ -27,10 +27,18 @@
 (setq mouse-yank-at-point t)
 (setq-default indent-tabs-mode nil)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
-(global-set-key (kbd "M-<up>") 'move-line-up)
-(global-set-key (kbd "M-<down>") 'move-line-down)
-(global-set-key (kbd "M-<left>") 'move-region-up)
-(global-set-key (kbd "M-<right>") 'move-region-down)
+;; move lines and paragraphs with right hand
+(global-set-key (kbd "C-S-i") 'move-line-up)
+(global-set-key (kbd "C-S-k") 'move-line-down)
+(global-set-key (kbd "C-S-j") 'move-region-up)
+(global-set-key (kbd "C-S-l") 'move-region-down)
+;; make cursor movement keys under right hand's home-row.
+(global-set-key (kbd "M-i") 'previous-line)
+(global-set-key (kbd "M-j") 'backward-char)
+(global-set-key (kbd "M-k") 'next-line)
+(global-set-key (kbd "M-l") 'forward-char)
+(global-set-key (kbd "M-u") 'backward-word)
+(global-set-key (kbd "M-o") 'forward-word)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
