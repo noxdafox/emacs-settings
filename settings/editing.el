@@ -41,6 +41,8 @@
 (global-set-key (kbd "M-o") 'forward-word)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
+(global-set-key (kbd "M-a") 'beginning-of-line)
+(global-set-key (kbd "M-e") 'end-of-line)
 
 ;; auto Complete Mode
 (require 'auto-complete-config)
