@@ -29,6 +29,7 @@
 ;; typing helpers
 (show-paren-mode t)
 (electric-pair-mode t)
+(electric-indent-mode t)
 (setq mouse-yank-at-point t)
 (setq-default indent-tabs-mode nil)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
