@@ -1,6 +1,7 @@
 ;; remove bars
 (tool-bar-mode 0)
 (menu-bar-mode 0)
+(setq-default mode-line-format nil)
 
 ;; F11 to toggle full screen
 (global-set-key [f11] 'toggle-fullscreen)
@@ -11,6 +12,13 @@
 ;; uniquify buffer names
 (require 'uniquify)
 (custom-set-variables '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+
+;; IDO mode
+(ido-mode t)
+
+;; Linum
+(require 'linum)
+(global-linum-mode t)
 
 ;; Tabbar
 (require 'tabbar)
