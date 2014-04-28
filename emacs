@@ -25,6 +25,7 @@
 (add-to-list 'load-path "~/.emacs.d/")
 
 ;; load custom settings
-(load "~/.emacs.d/settings/coding.el")
+(load "~/.emacs.d/settings/pymacs.el")
 (load "~/.emacs.d/settings/ide.el")
+(load "~/.emacs.d/settings/coding.el")
 (load "~/.emacs.d/settings/editing.el")
