@@ -23,9 +23,9 @@
 
 ;; load .emacs.d files
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/settings/")
 
 ;; load custom settings
-(load "~/.emacs.d/settings/pymacs.el")
-(load "~/.emacs.d/settings/ide.el")
-(load "~/.emacs.d/settings/coding.el")
-(load "~/.emacs.d/settings/editing.el")
+(require 'ide-settings)
+(require 'coding-settings)
+(require 'editing-settings)

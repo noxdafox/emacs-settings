@@ -1,10 +1,10 @@
 ;; RopEmacs
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
 (add-hook 'python-mode-hook
-      (lambda ()
-    (add-to-list 'ac-sources 'ac-source-ropemacs)))
+	  '(lambda ()
+             (require 'pymacs)
+             (pymacs-load "ropemacs" "rope-")
+             (setq ropemacs-enable-autoimport t)
+             (add-to-list 'ac-sources 'ac-source-ropemacs)))
 
 ;; FlyMake
 (require 'flymake)
@@ -60,3 +60,5 @@
      (format "ctags-exuberant -e -R -f %s --exclude='__init__.py'"
 	     tags-file-name))
     (visit-tags-table tags-file-name nil)))
+
+(provide 'coding-settings)

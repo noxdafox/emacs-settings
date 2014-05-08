@@ -91,3 +91,5 @@ That is, a string used to represent it on the tab bar."
     (set-frame-parameter
      nil 'fullscreen
      (when (not (frame-parameter nil 'fullscreen)) 'fullboth))))
+
+(provide 'ide-settings)
