@@ -1,3 +1,10 @@
+;; MELPA repositories
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
+
 ;; remove bars
 (tool-bar-mode 0)
 (menu-bar-mode 0)
