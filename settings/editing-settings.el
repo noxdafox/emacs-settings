@@ -3,15 +3,33 @@
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
 
+;; YouCompleteMe and CompANY
+(require 'ycmd)
+(set-variable 'ycmd-server-command '("python" "/home/noxdafox/development/ycmd/ycmd"))
+(require 'company-ycmd)
+(company-ycmd-setup)
+;; CompANY color face setting
+(require 'color)
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
 ;; Major modes
 ;;;; Python Mode
 (add-hook 'python-mode-hook
 	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+(add-hook 'python-mode-hook 'company-mode)
 ;;;; C/C++ Mode
 (add-hook 'c-mode-hook
 	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 (add-hook 'c++-mode-hook
 	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+(add-hook 'c-mode-hook 'company-mode)
+(add-hook 'c++-mode-hook 'company-mode)
 ;;;; Javascript Mode
 (add-hook 'javascript-mode-hook
 	  '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
@@ -48,12 +66,6 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-a") 'beginning-of-line)
 (global-set-key (kbd "M-e") 'end-of-line)
-
-;; auto Complete Mode
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-auto-start 3) ; start AC at third character
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 
 ;; auto delete trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

@@ -1,11 +1,3 @@
-;; RopEmacs
-(add-hook 'python-mode-hook
-	  '(lambda ()
-             (require 'pymacs)
-             (pymacs-load "ropemacs" "rope-")
-             (setq ropemacs-enable-autoimport t)
-             (add-to-list 'ac-sources 'ac-source-ropemacs)))
-
 ;; FlyMake
 (require 'flymake)
 ;; start flymake-mode when file is open
