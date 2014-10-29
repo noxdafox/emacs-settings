@@ -25,6 +25,9 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/settings/")
 
+;; initialize installed packages
+;;(package-initialize)
+
 ;; load custom settings
 (require 'ide-settings)
 (require 'coding-settings)
