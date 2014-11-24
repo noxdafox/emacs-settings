@@ -22,13 +22,15 @@
  '(default ((t (:family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
 
 ;; load .emacs.d files
-(add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/settings/")
 
-;; initialize installed packages
-;;(package-initialize)
+;; custom settings
+(require 'ide)
+(require 'editor)
+(require 'completion)
+(require 'navigation)
 
-;; load custom settings
-(require 'ide-settings)
-(require 'coding-settings)
-(require 'editing-settings)
+;; mode specifics
+(require 'pymode)
+(require 'cmode)
+(require 'texmode)
