@@ -7,7 +7,6 @@ Dependencies
 ------------
 
 Packages
-++++++++
 
 * column-marker
 * company-ycmd
@@ -17,7 +16,6 @@ Packages
 * flycheck-ycmd
 
 External
-++++++++
 
-Ctags Exhuberant
-ycmd
+* Ctags Exhuberant
+* ycmd
