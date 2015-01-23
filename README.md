@@ -6,8 +6,18 @@ Personal Emacs settings
 Dependencies
 ------------
 
-* Auto Complete Mode
-* Flymake
-* Tab Bar Mode
-* Flake8 (Python only)
-* Ctags Exhuberant (Tag search)
+Packages
+++++++++
+
+* column-marker
+* company-ycmd
+* ycmd
+* tabbar
+* flycheck
+* flycheck-ycmd
+
+External
+++++++++
+
+Ctags Exhuberant
+ycmd
