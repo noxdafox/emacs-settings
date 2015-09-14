@@ -17,5 +17,6 @@ Packages
 
 External
 
-* Ctags Exhuberant
 * ycmd
+* exuberant-ctags
+* fonts-inconsolata

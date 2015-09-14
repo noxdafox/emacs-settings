@@ -5,10 +5,16 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
 
-;; remove bars
-(tool-bar-mode 0)
-(menu-bar-mode 0)
+;; minimal ide
+(custom-set-variables
+ '(tooltip-mode nil)
+ '(tool-bar-mode nil)
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil))
 (setq-default mode-line-format nil)
+
+;; use Inconsolata font family
+(set-face-attribute 'default nil :family "Inconsolata" :height 140)
 
 ;; F11 to toggle full screen
 (global-set-key [f11] 'toggle-fullscreen)
