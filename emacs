@@ -21,6 +21,7 @@
 (require 'navigation)
 
 ;; mode specifics
-(require 'pymode)
 (require 'cmode)
+(require 'jmode)
+(require 'pymode)
 (require 'texmode)
