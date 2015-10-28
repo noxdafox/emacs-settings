@@ -8,11 +8,13 @@ Dependencies
 
 Packages
 
-* column-marker
-* company-ycmd
+* jdee
 * ycmd
 * tabbar
 * flycheck
+* sr-speedbar
+* company-ycmd
+* column-marker
 * flycheck-ycmd
 
 External
