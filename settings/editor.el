@@ -1,3 +1,6 @@
+;; Font
+(set-default-font "Inconsolata-12")
+
 ;; Modern scrolling
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)

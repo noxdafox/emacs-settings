@@ -5,6 +5,12 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
   )
 
+;; speed bar
+(require 'sr-speedbar)
+(setq speedbar-use-images nil)
+(setq sr-speedbar-right-side nil)
+(sr-speedbar-open)
+
 ;; minimal ide
 (custom-set-variables
  '(tooltip-mode nil)
@@ -14,7 +20,7 @@
 (setq-default mode-line-format nil)
 
 ;; use Inconsolata font family
-(set-face-attribute 'default nil :family "Inconsolata" :height 140)
+(set-face-attribute 'default nil :family "Inconsolata")
 
 ;; F11 to toggle full screen
 (global-set-key [f11] 'toggle-fullscreen)
