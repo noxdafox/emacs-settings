@@ -5,10 +5,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (tango-dark)))
  '(inhibit-startup-screen t)
- '(tabbar-separator (quote (0.5)))
+ '(custom-enabled-themes (quote (tango-dark)))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ;; load .emacs.d files

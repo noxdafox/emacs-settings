@@ -11,7 +11,7 @@
 ;; CompAny color face setting
 (require 'color)
 (let ((bg (face-attribute 'default :background)))
-  (unless bg "undefined-bg"
+  (when bg (not "unspecified-bg")
           (custom-set-faces
            `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
            `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))

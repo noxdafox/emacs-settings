@@ -10,5 +10,8 @@
 (add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'c-mode-hook (lambda () (column-marker-1 80)))
 (add-hook 'c++-mode-hook (lambda () (column-marker-1 80)))
+;; disable electric comma
+(eval-after-load "cc-mode"
+  '(define-key c-mode-base-map "," nil))
 
 (provide 'cmode)
