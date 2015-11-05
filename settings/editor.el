@@ -3,14 +3,16 @@
 
 ;; Modern scrolling
 (setq scroll-step 1)
-(setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
+(setq scroll-conservatively 10000)
 
 ;; typing helpers
 (show-paren-mode t)
 (electric-pair-mode t)
+(delete-selection-mode 1)
 (setq-default indent-tabs-mode nil)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
+
 ;; make cursor movement keys under right hand's home-row.
 (global-set-key (kbd "M-i") 'previous-line)
 (global-set-key (kbd "M-j") 'backward-char)
@@ -46,16 +48,21 @@
 (global-set-key (kbd "C-S-k") 'move-line-down)
 (global-set-key (kbd "C-S-j") 'move-region-up)
 (global-set-key (kbd "C-S-l") 'move-region-down)
+(global-set-key (kbd "C-S-o") 'move-region-right)
+(global-set-key (kbd "C-S-u") 'move-region-left)
+
 ;; move lines and regions
 (defun move-line-up ()
   (interactive)
   (transpose-lines 1)
   (forward-line -2))
+
 (defun move-line-down ()
   (interactive)
   (forward-line 1)
   (transpose-lines 1)
   (forward-line -1))
+
 (defun move-region (start end n)
   "Move the current region up or down by N lines."
   (interactive "r\np")
@@ -65,13 +72,34 @@
       (insert line-text)
       (setq deactivate-mark nil)
       (set-mark start))))
+
 (defun move-region-up (start end n)
   "Move the current line up by N lines."
   (interactive "r\np")
   (move-region start end (if (null n) -1 (- n))))
+
 (defun move-region-down (start end n)
   "Move the current line down by N lines."
   (interactive "r\np")
   (move-region start end (if (null n) 1 n)))
+
+(defun move-region-right ()
+  "Move the current line right."
+  (interactive)
+  (shift-region 1))
+
+(defun move-region-left ()
+  "Move the current line left."
+  (interactive)
+  (shift-region -1))
+
+(defun shift-region (distance)
+  (let ((mark (mark)))
+    (save-excursion
+      (indent-rigidly (region-beginning) (region-end) distance)
+      (push-mark mark t t)
+      ;; Tell the command loop not to deactivate the mark
+      ;; for transient mark mode
+      (setq deactivate-mark nil))))
 
 (provide 'editor)

@@ -8,9 +8,5 @@
 (add-hook 'python-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook (lambda () (column-marker-1 80)))
 (add-hook 'python-mode-hook (lambda () (column-marker-2 120)))
-(add-hook 'python-mode-hook
-          (lambda () (define-key python-mode-map (kbd "C-<") 'python-indent-shift-left)))
-(add-hook 'python-mode-hook
-          (lambda () (define-key python-mode-map (kbd "C->") 'python-indent-shift-right)))
 
 (provide 'pymode)
