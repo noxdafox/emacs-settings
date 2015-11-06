@@ -43,55 +43,55 @@
 ;; disable backup for TRAMP buffers
 (setq tramp-backup-directory-alist backup-directory-alist)
 
-;; move lines and paragraphs with right hand
-(global-set-key (kbd "C-S-i") 'move-line-up)
-(global-set-key (kbd "C-S-k") 'move-line-down)
-(global-set-key (kbd "C-S-j") 'move-region-up)
-(global-set-key (kbd "C-S-l") 'move-region-down)
-(global-set-key (kbd "C-S-o") 'move-region-right)
-(global-set-key (kbd "C-S-u") 'move-region-left)
+;; move lines and paragraphs
+(global-set-key (kbd "C-S-i") 'move-text-up)
+(global-set-key (kbd "C-S-k") 'move-text-down)
+(global-set-key (kbd "C-S-j") 'move-text-left)
+(global-set-key (kbd "C-S-l") 'move-text-right)
 
-;; move lines and regions
-(defun move-line-up ()
+(defun move-text-up (start end n)
+  "Moves the line or the region up."
+  (interactive "r\np")
+  (if (use-region-p)
+      (move-region start end (if (null n) -1 (- n)))
+    (move-line-up)))
+
+(defun move-text-down (start end n)
+  "Moves the line or the region down."
+  (interactive "r\np")
+  (if (use-region-p)
+      (move-region start end (if (null n) 1 n))
+    (move-line-down)))
+
+(defun move-text-right ()
+  "Move the current line right."
   (interactive)
+  (shift-region 1))
+
+(defun move-text-left ()
+  "Move the current line left."
+  (interactive)
+  (shift-region -1))
+
+(defun move-line-up ()
+  "Move the current line up."
   (transpose-lines 1)
   (forward-line -2))
 
 (defun move-line-down ()
-  (interactive)
+  "Move the current line down."
   (forward-line 1)
   (transpose-lines 1)
   (forward-line -1))
 
 (defun move-region (start end n)
   "Move the current region up or down by N lines."
-  (interactive "r\np")
   (let ((line-text (delete-and-extract-region start end)))
     (forward-line n)
     (let ((start (point)))
       (insert line-text)
       (setq deactivate-mark nil)
       (set-mark start))))
-
-(defun move-region-up (start end n)
-  "Move the current line up by N lines."
-  (interactive "r\np")
-  (move-region start end (if (null n) -1 (- n))))
-
-(defun move-region-down (start end n)
-  "Move the current line down by N lines."
-  (interactive "r\np")
-  (move-region start end (if (null n) 1 n)))
-
-(defun move-region-right ()
-  "Move the current line right."
-  (interactive)
-  (shift-region 1))
-
-(defun move-region-left ()
-  "Move the current line left."
-  (interactive)
-  (shift-region -1))
 
 (defun shift-region (distance)
   (let ((mark (mark)))
