@@ -1,14 +1,19 @@
 ;; MELPA repositories
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  )
+(require 'package) ; this must stay on top
+(package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+;; semantic mode
+(require 'semantic)
+(custom-set-variables
+ '(semantic-mode t))
 
 ;; speed bar
 (require 'sr-speedbar)
-(setq speedbar-use-images nil)
-(setq sr-speedbar-right-side nil)
+(custom-set-variables
+ '(speedbar-use-images nil)
+ '(sr-speedbar-right-side nil)
+ '(speedbar-show-unknown-files t))
 (sr-speedbar-open)
 
 ;; minimal ide
@@ -16,11 +21,8 @@
  '(tooltip-mode nil)
  '(tool-bar-mode nil)
  '(menu-bar-mode nil)
- '(scroll-bar-mode nil))
-(setq-default mode-line-format nil)
-
-;; use Inconsolata font family
-(set-face-attribute 'default nil :family "Inconsolata")
+ '(scroll-bar-mode nil)
+ '(mode-line-format nil))
 
 ;; F11 to toggle full screen
 (global-set-key [f11] 'toggle-fullscreen)
@@ -30,7 +32,8 @@
 
 ;; uniquify buffer names
 (require 'uniquify)
-(custom-set-variables '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+(custom-set-variables
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ;; IDO mode
 (ido-mode t)
