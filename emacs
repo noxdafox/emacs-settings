@@ -6,7 +6,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(inhibit-startup-screen t)
- '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-enabled-themes (quote (tango-dark-custom)))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ;; load .emacs.d files
@@ -14,6 +14,7 @@
 
 ;; custom settings
 (require 'ide)
+(require 'tango)
 (require 'editor)
 (require 'completion)
 (require 'navigation)
