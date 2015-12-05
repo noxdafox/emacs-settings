@@ -4,6 +4,11 @@
 (require 'flycheck)
 (require 'column-marker)
 
+(custom-set-variables
+ '(c-basic-offset 4)
+ '(c-indent-level 4)
+ '(c-file-style "K&R"))
+
 (add-hook 'c-mode-hook 'ycmd-mode)
 (add-hook 'c++-mode-hook 'ycmd-mode)
 (add-hook 'c-mode-hook 'flycheck-mode)
