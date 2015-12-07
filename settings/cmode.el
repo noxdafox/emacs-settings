@@ -1,6 +1,7 @@
 ;; C/C++ Mode
 
 (require 'ycmd)
+(require 'ggtags)
 (require 'flycheck)
 (require 'column-marker)
 
@@ -11,6 +12,8 @@
 
 (add-hook 'c-mode-hook 'ycmd-mode)
 (add-hook 'c++-mode-hook 'ycmd-mode)
+(add-hook 'c-mode-hook 'ggtags-mode)
+(add-hook 'c++-mode-hook 'ggtags-mode)
 (add-hook 'c-mode-hook 'flycheck-mode)
 (add-hook 'c++-mode-hook 'flycheck-mode)
 (add-hook 'c-mode-hook (lambda () (column-marker-1 80)))
