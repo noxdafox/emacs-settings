@@ -1,7 +1,13 @@
 ;; MELPA repositories
-(require 'package) ; this must stay on top
+(require 'package)
 (package-initialize)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(custom-set-variables
+  '(package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+		       ("melpa" . "https://melpa.org/packages/"))))
+
+;; TLS for package repositories
+(custom-set-variables
+ '(tls-checktrust t))
 
 ;; semantic mode
 (require 'semantic)
