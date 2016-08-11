@@ -23,4 +23,5 @@
 (require 'cmode)
 (require 'jmode)
 (require 'pymode)
+(require 'orgmode)
 (require 'texmode)
