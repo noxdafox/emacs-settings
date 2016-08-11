@@ -8,6 +8,7 @@
 (add-hook 'python-mode-hook 'ycmd-mode)
 (add-hook 'python-mode-hook 'ggtags-mode)
 (add-hook 'python-mode-hook 'flycheck-mode)
+(setq flycheck-python-pylint-executable "pylint3")
 (add-hook 'python-mode-hook (lambda () (column-marker-1 80)))
 (add-hook 'python-mode-hook (lambda () (column-marker-2 120)))
 
