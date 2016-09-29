@@ -46,6 +46,8 @@ Semantic, and Ansi-Color faces are included.")
       ;; Not in Tango palette; used for better contrast.
       (cham-0 "#b4fa70") (blue-0 "#8cc4ff") (plum-0 "#e9b2e3")
       (red-0 "#ff4b4b")  (alum-5.5 "#41423f") (alum-7 "#212526")
+      ;; Custom colors
+      (deep-blue "#181a26")
       ;; Imported from Solarized
       (cyan "#2aa198") (blue-4 "#268bd2"))
 
@@ -53,14 +55,14 @@ Semantic, and Ansi-Color faces are included.")
    'tango-dark-custom
    ;; Ensure sufficient contrast on low-color terminals.
    `(default ((((class color) (min-colors 4096))
-	       (:foreground ,alum-1 :background ,alum-6))
+	       (:foreground ,alum-1 :background ,deep-blue))
 	      (((class color) (min-colors 256))
 	       (:foreground ,alum-1 :background "#222"))
 	      (,class
 	       (:foreground ,alum-1 :background "black"))))
    `(cursor ((,class (:background ,butter-1))))
    ;; Highlighting faces
-   `(fringe ((,class (:background ,alum-7))))
+   `(fringe ((,class (:background ,deep-blue))))
    `(highlight ((,class (:foreground ,alum-6 :background ,butter-2))))
    `(region ((,class (:background ,alum-5))))
    `(secondary-selection ((,class (:background ,blue-3))))
@@ -70,10 +72,10 @@ Semantic, and Ansi-Color faces are included.")
    ;; Mode line faces
    `(mode-line ((,class
 		 (:box (:line-width -1 :style released-button)
-		  :background ,alum-2 :foreground ,alum-6))))
+		  :background ,deep-blue :foreground ,alum-1))))
    `(mode-line-inactive ((,class
 			  (:box (:line-width -1 :style released-button)
-			   :background ,alum-5 :foreground ,alum-1))))
+			   :background ,deep-blue :foreground ,alum-1))))
    `(compilation-mode-line-fail ((,class (:foreground ,red-3))))
    `(compilation-mode-line-run  ((,class (:foreground ,orange-3))))
    `(compilation-mode-line-exit ((,class (:foreground ,cham-3))))

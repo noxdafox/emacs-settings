@@ -53,22 +53,22 @@
 ;; Tabbar settings
 (set-face-attribute
  'tabbar-default nil
- :background "gray20"
- :foreground "gray20"
+ :background "#181a26"
+ :foreground "#181a26"
  :underline nil
- :box '(:line-width 1 :color "gray20" :style nil))
+ :box '(:line-width 1 :color "#181a26" :style nil))
 (set-face-attribute
  'tabbar-unselected nil
- :background "gray30"
- :foreground "white"
+ :background "#181a26"
+ :foreground "#eeeeec"
  :underline nil
- :box '(:line-width 5 :color "gray30" :style nil))
+ :box '(:line-width 5 :color "#181a26" :style nil))
 (set-face-attribute
  'tabbar-selected nil
- :background "gray75"
- :foreground "black"
+ :background "#103050"
+ :foreground "#eeeeec"
  :underline nil
- :box '(:line-width 5 :color "gray75" :style nil))
+ :box '(:line-width 5 :color "#103050" :style nil))
 (set-face-attribute
  'tabbar-highlight nil
  :background "white"
@@ -78,10 +78,10 @@
 (set-face-attribute
  'tabbar-button nil
  :underline nil
- :box '(:line-width 1 :color "gray20" :style nil))
+ :box '(:line-width 1 :color "#181a26" :style nil))
 (set-face-attribute
  'tabbar-separator nil
- :background "gray20"
+ :background "#181a26"
  :underline nil
  :height 0.6)
 ;; Change padding of the tabs
