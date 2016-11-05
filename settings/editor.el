@@ -49,18 +49,18 @@
 (global-set-key (kbd "C-S-j") 'move-text-left)
 (global-set-key (kbd "C-S-l") 'move-text-right)
 
-(defun move-text-up (start end n)
+(defun move-text-up ()
   "Moves the line or the region up."
-  (interactive "r\np")
+  (interactive)
   (if (use-region-p)
-      (move-region start end (if (null n) -1 (- n)))
+      (move-region (region-beginning) (region-end) -1)
     (move-line-up)))
 
-(defun move-text-down (start end n)
+(defun move-text-down ()
   "Moves the line or the region down."
-  (interactive "r\np")
+  (interactive)
   (if (use-region-p)
-      (move-region start end (if (null n) 1 n))
+      (move-region (region-beginning) (region-end) 1)
     (move-line-down)))
 
 (defun move-text-right ()
