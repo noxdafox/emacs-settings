@@ -27,8 +27,7 @@
  '(tooltip-mode nil)
  '(tool-bar-mode nil)
  '(menu-bar-mode nil)
- '(scroll-bar-mode nil)
- '(mode-line-format nil))
+ '(scroll-bar-mode nil))
 
 ;; F11 to toggle full screen
 (global-set-key [f11] 'toggle-fullscreen)
