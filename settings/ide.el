@@ -48,6 +48,10 @@
 (require 'linum)
 (global-linum-mode t)
 
+;; flycheck ycmd
+(require 'flycheck-ycmd)
+(flycheck-ycmd-setup)
+
 ;; Tabbar
 (require 'tabbar)
 ;; Tabbar settings
