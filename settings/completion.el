@@ -1,13 +1,14 @@
-;; global auto completion through company
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-
-;; ycmd company backend
+;; global auto completion through ycmd-company
 (require 'ycmd)
-(set-variable 'ycmd-server-command '("python" "/usr/lib/ycmd/ycmd"))
+(add-hook 'after-init-hook #'global-ycmd-mode)
+
 (require 'company-ycmd)
 (company-ycmd-setup)
+
+;; ycmd company backend settings
+(set-variable 'ycmd-server-command '("python" "/usr/lib/ycmd/ycmd"))
 (define-key company-active-map (kbd "<tab>") #'company-complete)
+
 ;; CompAny color face setting
 (require 'color)
 (defun background-color ()
