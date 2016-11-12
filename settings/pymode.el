@@ -16,4 +16,7 @@
 (add-hook 'python-mode-hook (lambda () (column-marker-1 80)))
 (add-hook 'python-mode-hook (lambda () (column-marker-2 120)))
 
+(setq python-shell-interpreter "ipython3"
+    python-shell-interpreter-args "-i")
+
 (provide 'pymode)
