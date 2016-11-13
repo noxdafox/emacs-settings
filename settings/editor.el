@@ -13,11 +13,10 @@
 (setq-default indent-tabs-mode nil)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
 
-;; set column marker
-(require 'fill-column-indicator)
-(setq fci-rule-column 80)
-(setq fci-rule-color "darkgray")
-(add-hook 'prog-mode-hook 'fci-mode)
+;; column marker
+(require 'column-marker)
+(add-hook 'prog-mode-hook (lambda () (column-marker-1 80)))
+(add-hook 'prog-mode-hook (lambda () (column-marker-2 120)))
 
 ;; make cursor movement keys under right hand's home-row.
 (global-set-key (kbd "M-i") 'previous-line)
