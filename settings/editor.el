@@ -16,9 +16,8 @@
 ;; set column marker
 (require 'fill-column-indicator)
 (setq fci-rule-column 80)
-(setq fci-rule-width 1)
 (setq fci-rule-color "darkgray")
-(add-hook 'after-change-major-mode-hook 'fci-mode)
+(add-hook 'prog-mode-hook 'fci-mode)
 
 ;; make cursor movement keys under right hand's home-row.
 (global-set-key (kbd "M-i") 'previous-line)
