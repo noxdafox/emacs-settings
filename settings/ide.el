@@ -40,8 +40,10 @@
 (custom-set-variables
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
-;; IDO mode
+;; Interactively Do Things mode
+(require 'ido)
 (ido-mode t)
+(setq ido-enable-flex-matching t)
 
 ;; Linum
 (require 'linum)
