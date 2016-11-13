@@ -5,25 +5,20 @@
 (require 'company-ycmd)
 (company-ycmd-setup)
 
+(require 'company)
+(global-company-mode t)
+
 ;; ycmd company backend settings
 (set-variable 'ycmd-server-command '("python" "/usr/lib/ycmd/ycmd"))
 (define-key company-active-map (kbd "<tab>") #'company-complete)
 
-;; CompAny color face setting
-(require 'color)
-(defun background-color ()
-  "Return background color."
-  (let ((background (face-attribute 'default :background)))
-  (if (equal background "unspecified-bg")
-      "#000000"
-    background)))
+;; disable fill-column-indicator on completion
+(defun on-off-fci-before-company(command)
+  (when (string= "show" command)
+    (turn-off-fci-mode))
+  (when (string= "hide" command)
+    (turn-on-fci-mode)))
 
-(let ((bg (background-color)))
-  (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+(advice-add 'company-call-frontends :before #'on-off-fci-before-company)
 
 (provide 'completion)
