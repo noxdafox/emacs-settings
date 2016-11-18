@@ -9,6 +9,9 @@
  '(comint-completion-addsuffix t)       ; file completion space/slash insertion
  )
 
+(require 'bash-completion)
+(bash-completion-setup)
+
 ; scroll to bottom when searching history
 (defadvice comint-previous-input
     (before before-comint-previous-input activate)
