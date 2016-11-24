@@ -25,7 +25,6 @@
 
 ;; mode specifics
 (require 'cmode)
-(require 'jmode)
 (require 'pymode)
 (require 'shmode)
 (require 'orgmode)
