@@ -14,4 +14,9 @@
 (set-variable 'ycmd-server-command '("python" "/usr/lib/ycmd/ycmd"))
 (define-key company-active-map (kbd "<tab>") #'company-complete)
 
+;; company color adjustments
+(require 'color)
+(custom-set-faces
+ `(company-tooltip-annotation ((t (:inherit font-lock-constant-face)))))
+
 (provide 'completion)
