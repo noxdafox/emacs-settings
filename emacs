@@ -6,8 +6,11 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(inhibit-startup-screen t)
- '(custom-enabled-themes (quote (tango-dark-custom)))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+
+;; load theme
+(load-theme 'tango-dark t)
+(load-theme 'tango-dark-overrides t)
 
 ;; set transparency
 (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
@@ -18,7 +21,6 @@
 
 ;; custom settings
 (require 'ide)
-(require 'tango)
 (require 'editor)
 (require 'completion)
 (require 'navigation)
