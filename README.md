@@ -12,7 +12,6 @@ Packages
 * ycmd
 * magit
 * flycheck
-* sr-speedbar
 * company-ycmd
 * column-marker
 * flycheck-ycmd

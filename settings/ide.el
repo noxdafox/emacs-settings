@@ -9,19 +9,6 @@
 (custom-set-variables
  '(tls-checktrust t))
 
-;; semantic mode
-(require 'semantic)
-(custom-set-variables
- '(semantic-mode t))
-
-;; speed bar
-(require 'sr-speedbar)
-(custom-set-variables
- '(speedbar-use-images nil)
- '(sr-speedbar-right-side nil)
- '(speedbar-show-unknown-files t))
-(sr-speedbar-open)
-
 ;; minimal ide
 (custom-set-variables
  '(tooltip-mode nil)
