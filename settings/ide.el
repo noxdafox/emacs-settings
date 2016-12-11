@@ -47,9 +47,10 @@
 (require 'flycheck-ycmd)
 (flycheck-ycmd-setup)
 
-;; Tabbar
+;; tabbar
 (require 'tabbar)
-;; Tabbar settings
+(tabbar-mode t)
+
 (set-face-attribute
  'tabbar-default nil
  :background "#181a26"
@@ -103,15 +104,5 @@ That is, a string used to represent it on the tab bar."
        label (max 1 (/ (window-width)
 		       (length (tabbar-view
 				(tabbar-current-tabset)))))))))
-(tabbar-mode t)
-
-(defun byte-compile-current-buffer ()
-  "byte-compile current buffer if it's emacs-lisp-mode and compiled file exists."
-  (interactive)
-  (when (and (eq major-mode 'emacs-lisp-mode)
-             (file-exists-p (byte-compile-dest-file buffer-file-name)))
-    (byte-compile-file buffer-file-name)))
-
-(add-hook 'after-save-hook 'byte-compile-current-buffer)
 
 (provide 'ide)
