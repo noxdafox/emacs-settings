@@ -29,12 +29,6 @@
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil))
 
-;; F11 to toggle full screen
-(global-set-key [f11] 'toggle-fullscreen)
-
-;; navigate through windows with shift + arrow keys
-(windmove-default-keybindings)
-
 ;; uniquify buffer names
 (require 'uniquify)
 (custom-set-variables
@@ -110,8 +104,6 @@ That is, a string used to represent it on the tab bar."
 		       (length (tabbar-view
 				(tabbar-current-tabset)))))))))
 (tabbar-mode t)
-(global-set-key [C-tab] 'tabbar-forward-tab)
-(global-set-key [C-M-tab] 'tabbar-forward-group)
 
 (defun byte-compile-current-buffer ()
   "byte-compile current buffer if it's emacs-lisp-mode and compiled file exists."
@@ -121,13 +113,5 @@ That is, a string used to represent it on the tab bar."
     (byte-compile-file buffer-file-name)))
 
 (add-hook 'after-save-hook 'byte-compile-current-buffer)
-
-(defun toggle-fullscreen ()
-  "Toggle full screen on X11"
-  (interactive)
-  (when (eq window-system 'x)
-    (set-frame-parameter
-     nil 'fullscreen
-     (when (not (frame-parameter nil 'fullscreen)) 'fullboth))))
 
 (provide 'ide)

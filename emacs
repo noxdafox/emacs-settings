@@ -24,6 +24,7 @@
 (require 'editor)
 (require 'completion)
 (require 'navigation)
+(require 'keybindings)
 
 ;; mode specifics
 (require 'cmode)
