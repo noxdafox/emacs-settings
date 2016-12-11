@@ -1,30 +1,31 @@
+(require 'use-package)
+
 ;; navigate through windows with shift + arrow keys
 (windmove-default-keybindings)
 
 ;; F11 to toggle full screen
-(global-set-key [f11] 'toggle-fullscreen)
+(bind-key* "<f11>" 'toggle-fullscreen)
 
 ;; make cursor movement keys under right hand's home-row.
-(global-set-key (kbd "M-i") 'previous-line)
-(global-set-key (kbd "M-j") 'backward-char)
-(global-set-key (kbd "M-k") 'next-line)
-(global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "M-u") 'backward-word)
-(global-set-key (kbd "M-o") 'forward-word)
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
-(global-set-key (kbd "M-a") 'beginning-of-line)
-(global-set-key (kbd "M-e") 'end-of-line)
+(bind-key* "M-i" 'previous-line)
+(bind-key* "M-j" 'backward-char)
+(bind-key* "M-k" 'next-line)
+(bind-key* "M-l" 'forward-char)
+(bind-key* "M-u" 'backward-word)
+(bind-key* "M-o" 'forward-word)
+(bind-key* "M-n" 'forward-paragraph)
+(bind-key* "M-p" 'backward-paragraph)
+(bind-key* "M-a" 'beginning-of-line)
+(bind-key* "M-e" 'end-of-line)
 
 ;; move lines and paragraphs
-(global-set-key (kbd "C-S-i") 'move-text-up)
-(global-set-key (kbd "C-S-k") 'move-text-down)
-(global-set-key (kbd "C-S-j") 'move-text-left)
-(global-set-key (kbd "C-S-l") 'move-text-right)
+(bind-key* "C-S-i" 'move-text-up)
+(bind-key* "C-S-k" 'move-text-down)
+(bind-key* "C-S-j" 'move-text-left)
+(bind-key* "C-S-l" 'move-text-right)
 
-;; tabbar tabs switching
-(global-set-key [C-tab] 'tabbar-forward-tab)
-(global-set-key [C-M-tab] 'tabbar-forward-group)
+;; cycle through buffers
+(bind-key* "C-<tab>" 'next-buffer)
 
 ;; utility functions
 (defun toggle-fullscreen ()

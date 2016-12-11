@@ -12,6 +12,7 @@ Packages
 * ycmd
 * magit
 * flycheck
+* use-package
 * company-ycmd
 * column-marker
 * flycheck-ycmd
