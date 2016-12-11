@@ -11,7 +11,6 @@ Packages
 * jdee
 * ycmd
 * magit
-* tabbar
 * flycheck
 * sr-speedbar
 * company-ycmd
