@@ -1,3 +1,5 @@
+;; Emacs Editing configurations
+
 ;; MELPA repositories
 (require 'package)
 (package-initialize)
@@ -69,3 +71,4 @@
 (setq tramp-backup-directory-alist backup-directory-alist)
 
 (provide 'editor)
+;; editor.el ends here
