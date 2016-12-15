@@ -1,3 +1,5 @@
+;; Emacs custom key bindings
+
 (require 'use-package)
 
 ;; navigate through windows with shift + arrow keys
@@ -26,6 +28,12 @@
 
 ;; cycle through buffers
 (bind-key* "C-<tab>" 'next-buffer)
+
+;; show documentation at point
+(bind-key* "M-h" 'ycmd-show-documentation)
+
+;; company completion key
+(define-key company-active-map (kbd "<tab>") #'company-complete)
 
 ;; utility functions
 (defun toggle-fullscreen ()
