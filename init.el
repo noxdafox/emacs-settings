@@ -21,13 +21,6 @@
 
 ;; custom settings
 (require 'editor)
-(require 'completion)
-(require 'navigation)
+(require 'development)
 (require 'keybindings)
-
-;; mode specifics
-(require 'cmode)
-(require 'pymode)
-(require 'shmode)
-(require 'orgmode)
-(require 'texmode)
+(require 'modes)
