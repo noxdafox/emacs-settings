@@ -20,7 +20,6 @@
 (add-to-list 'load-path "~/.emacs.d/settings/")
 
 ;; custom settings
-(require 'ide)
 (require 'editor)
 (require 'completion)
 (require 'navigation)
