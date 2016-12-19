@@ -12,7 +12,7 @@
  '(tls-checktrust t))
 
 ;; Font
-(set-default-font "Inconsolata-12")
+(set-frame-font "Inconsolata-12")
 
 ;; minimal ide
 (custom-set-variables
