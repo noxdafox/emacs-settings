@@ -3,7 +3,9 @@
 ;; auto completion through ycmd-company
 (require 'ycmd)
 (add-hook 'after-init-hook #'global-ycmd-mode)
-(set-variable 'ycmd-server-command '("python" "/usr/bin/ycmd"))
+(set-variable 'ycmd-python-binary-path "/usr/bin/python3")
+(set-variable 'ycmd-server-command
+              '("python3" "/home/noxdafox/development/ycmd/ycmd"))
 (set-variable 'ycmd-global-config
               "/home/noxdafox/.emacs.d/ycmd_global_config.py")
 
