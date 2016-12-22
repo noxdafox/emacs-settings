@@ -32,6 +32,9 @@
 ;; show documentation at point
 (bind-key* "M-h" 'ycmd-show-documentation)
 
+;; comment region
+(bind-key* "M-c" 'comment-or-uncomment-region)
+
 ;; company completion key
 (define-key company-active-map (kbd "<tab>") #'company-complete)
 
