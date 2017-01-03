@@ -37,10 +37,14 @@
  '(comint-completion-autolist t)        ; show completion list when ambiguous
  '(comint-input-ignoredups t)           ; no duplicates in command history
  '(comint-completion-addsuffix t)       ; file completion space/slash insertion
- )
+ '(comint-buffer-maximum-size 8192))    ; maximum buffer size in lines
 
 (require 'bash-completion)
 (bash-completion-setup)
+
+; automatically truncate buffer size
+(add-hook 'comint-output-filter-functions
+          'comint-truncate-buffer)
 
 ; scroll to bottom when searching history
 (defadvice comint-previous-input
