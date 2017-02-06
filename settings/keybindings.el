@@ -32,7 +32,11 @@
 ;; show documentation at point
 (bind-key* "M-h" 'ycmd-show-documentation)
 
+;; comment code region
+(bind-key* "M-c" 'comment-or-uncomment)
+
 ;; company completion key
+(require 'company)
 (define-key company-active-map (kbd "<tab>") #'company-complete)
 
 ;; utility functions
@@ -96,5 +100,12 @@
       ;; Tell the command loop not to deactivate the mark
       ;; for transient mark mode
       (setq deactivate-mark nil))))
+
+(defun comment-or-uncomment ()
+  (interactive)
+  (if (use-region-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-or-uncomment-region
+     (line-beginning-position) (line-end-position))))
 
 (provide 'keybindings)
