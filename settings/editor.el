@@ -61,6 +61,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; auto-focus on help windows
+(setq help-window-select t)
+
 ;; TRAMP
 ;; TRAMP edit remote files
 (require 'tramp)
