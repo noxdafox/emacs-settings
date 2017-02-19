@@ -31,6 +31,9 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
+;; smart mode line
+(sml/setup)
+
 ;; Linum
 (require 'linum)
 (global-linum-mode t)

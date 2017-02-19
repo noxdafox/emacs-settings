@@ -17,6 +17,7 @@ Packages
 * column-marker
 * flycheck-ycmd
 * bash-completion
+* smart-mode-line
 
 External
 
