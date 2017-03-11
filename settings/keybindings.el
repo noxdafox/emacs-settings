@@ -39,6 +39,11 @@
 (require 'company)
 (define-key company-active-map (kbd "<tab>") #'company-complete)
 
+;; shell mode history search
+(add-hook 'shell-mode-hook
+          (define-key shell-mode-map (kbd "C-r")
+            'comint-history-isearch-backward-regexp))
+
 ;; utility functions
 (defun toggle-fullscreen ()
   "Toggle full screen on X11"
