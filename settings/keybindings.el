@@ -40,9 +40,9 @@
 (define-key company-active-map (kbd "<tab>") #'company-complete)
 
 ;; shell mode history search
-(add-hook 'shell-mode-hook
-          (define-key shell-mode-map (kbd "C-r")
-            'comint-history-isearch-backward-regexp))
+(define-key shell-mode-map (kbd "<down>") 'comint-next-input)
+(define-key shell-mode-map (kbd "<up>") 'comint-previous-input)
+(define-key shell-mode-map (kbd "C-r") 'comint-history-isearch-backward-regexp)
 
 ;; utility functions
 (defun toggle-fullscreen ()
