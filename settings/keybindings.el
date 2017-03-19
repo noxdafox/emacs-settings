@@ -43,6 +43,9 @@
 (define-key shell-mode-map (kbd "<down>") 'comint-next-input)
 (define-key shell-mode-map (kbd "<up>") 'comint-previous-input)
 (define-key shell-mode-map (kbd "C-r") 'comint-history-isearch-backward-regexp)
+
+;; python shell mode history search
+(require 'python)
 (define-key inferior-python-mode-map (kbd "<down>") 'comint-next-input)
 (define-key inferior-python-mode-map (kbd "<up>") 'comint-previous-input)
 (define-key inferior-python-mode-map (kbd "C-r")
