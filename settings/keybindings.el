@@ -36,15 +36,16 @@
 (bind-key* "M-c" 'comment-or-uncomment)
 
 ;; company completion key
+(require 'ycmd)
 (require 'company)
 (define-key company-active-map (kbd "<tab>") #'company-complete)
+(define-key ycmd-mode-map [remap complete-symbol] #'company-ycmd-complete)
 
 ;; shell mode history search
+(require 'shell)
 (define-key shell-mode-map (kbd "<down>") 'comint-next-input)
 (define-key shell-mode-map (kbd "<up>") 'comint-previous-input)
 (define-key shell-mode-map (kbd "C-r") 'comint-history-isearch-backward-regexp)
-
-;; python shell mode history search
 (require 'python)
 (define-key inferior-python-mode-map (kbd "<down>") 'comint-next-input)
 (define-key inferior-python-mode-map (kbd "<up>") 'comint-previous-input)
@@ -116,5 +117,10 @@
       (comment-or-uncomment-region (region-beginning) (region-end))
     (comment-or-uncomment-region
      (line-beginning-position) (line-end-position))))
+
+(defun company-ycmd-complete ()
+  (interactive)
+  (let ((ycmd-force-semantic-completion t))
+     (company-complete)))
 
 (provide 'keybindings)
