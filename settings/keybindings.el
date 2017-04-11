@@ -26,6 +26,13 @@
 (bind-key* "C-S-j" 'move-text-left)
 (bind-key* "C-S-l" 'move-text-right)
 
+;; advanced kill functions
+(bind-key* "C-w" 'kill-command)
+(bind-key* "M-w" 'kill-ring-save-command)
+
+;; grep at point
+(bind-key* "C-f" 'grep-symbol)
+
 ;; cycle through buffers
 (bind-key* "C-<tab>" 'next-buffer)
 
@@ -121,6 +128,26 @@
 (defun company-ycmd-complete ()
   (interactive)
   (let ((ycmd-force-semantic-completion t))
-     (company-complete)))
+    (company-complete)))
+
+(defun grep-symbol ()
+  (interactive)
+  (rgrep (thing-at-point 'symbol)
+         "*.py *.c *.h *.cpp"
+         (read-directory-name "Root folder:")))
+
+(defun kill-command ()
+  "Kill region if active, symbol otherwise."
+  (interactive)
+  (if (use-region-p)
+      (kill-region (region-beginning) (region-end))
+    (kill-region (beginning-of-thing 'symbol) (end-of-thing 'symbol))))
+
+(defun kill-ring-save-command ()
+  "Save region if active, symbol otherwise."
+  (interactive)
+  (if (use-region-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (kill-ring-save (beginning-of-thing 'symbol) (end-of-thing 'symbol))))
 
 (provide 'keybindings)
