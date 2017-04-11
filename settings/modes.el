@@ -69,5 +69,8 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
+;; Lisp Mode
+(setq ycmd-file-type-map '(not emacs-lisp-mode))
+
 (provide 'modes)
 ;;; modes.el ends here
