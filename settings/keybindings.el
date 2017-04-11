@@ -132,9 +132,10 @@
 
 (defun grep-symbol ()
   (interactive)
-  (rgrep (thing-at-point 'symbol)
+  (grep-compute-defaults)
+  (rgrep (thing-at-point 'symbol t)
          "*.py *.c *.h *.cpp"
-         (read-directory-name "Root folder:")))
+         (ido-read-directory-name "Root folder:")))
 
 (defun kill-command ()
   "Kill region if active, symbol otherwise."
