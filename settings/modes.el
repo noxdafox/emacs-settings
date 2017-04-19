@@ -39,6 +39,9 @@
  '(comint-completion-addsuffix t)       ; file completion space/slash insertion
  '(comint-buffer-maximum-size 8192))    ; maximum buffer size in lines
 
+; do not override prompt colors
+(set-face-attribute 'comint-highlight-prompt nil :inherit nil)
+
 (require 'bash-completion)
 (bash-completion-setup)
 
