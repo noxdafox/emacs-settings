@@ -73,7 +73,7 @@
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
 ;; Lisp Mode
-(setq ycmd-file-type-map '(not emacs-lisp-mode))
+(setq ycmd-file-type-map (remove '(emacs-lisp-mode "elisp") ycmd-file-type-map))
 
 (provide 'modes)
 ;;; modes.el ends here
