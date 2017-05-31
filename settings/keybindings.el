@@ -39,7 +39,8 @@
 ;; show documentation at point
 (bind-key* "M-h" 'ycmd-show-documentation)
 
-;; comment code region
+;; region code manipulation
+(bind-key* "M-r" 'replace-string)
 (bind-key* "M-c" 'comment-or-uncomment)
 
 ;; company completion key
