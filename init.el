@@ -20,20 +20,7 @@
 (add-to-list 'load-path "~/.emacs.d/settings/")
 
 ;; install dependencies if missing
-(package-install 'jdee)
-(package-install 'magit)
-(package-install 'ggtags)
-(package-install 'elixir-mode)
-(package-install 'use-package)
-(package-install 'column-marker)
-(package-install 'bash-completion)
-(package-install 'smart-mode-line)
-(package-install 'ycmd)
-(package-install 'ycmd-eldoc)
-(package-install 'company)
-(package-install 'company-ycmd)
-(package-install 'flycheck)
-(package-install 'flycheck-ycmd)
+(require 'packages)
 
 ;; custom settings
 (require 'editor)

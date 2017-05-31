@@ -1,16 +1,5 @@
 ;; Emacs Editing configurations
 
-;; MELPA repositories
-(require 'package)
-(package-initialize)
-(custom-set-variables
-  '(package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-		       ("melpa" . "https://melpa.org/packages/"))))
-
-;; TLS for package repositories
-(custom-set-variables
- '(tls-checktrust t))
-
 ;; Font
 (set-frame-font "Inconsolata-12")
 
