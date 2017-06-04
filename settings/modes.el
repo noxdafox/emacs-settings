@@ -75,5 +75,8 @@
 ;; Lisp Mode
 (setq ycmd-file-type-map (remove '(emacs-lisp-mode "elisp") ycmd-file-type-map))
 
+;; Elixir mode
+(add-hook 'elixir-mode-hook 'alchemist-mode)
+
 (provide 'modes)
 ;;; modes.el ends here
