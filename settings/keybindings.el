@@ -58,6 +58,10 @@
 (define-key inferior-python-mode-map (kbd "C-r")
   'comint-history-isearch-backward-regexp)
 
+;; lisp mode documentation
+(define-key lisp-mode-map (kbd "M-h") 'describe-symbol)
+(define-key emacs-lisp-mode-map (kbd "M-h") 'describe-symbol)
+
 ;; elixir mode alchemist documentation
 (require 'alchemist)
 (define-key elixir-mode-map (kbd "M-h") 'alchemist-help-search-at-point)
