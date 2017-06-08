@@ -58,6 +58,10 @@
 (define-key inferior-python-mode-map (kbd "C-r")
   'comint-history-isearch-backward-regexp)
 
+;; elixir mode alchemist documentation
+(require 'alchemist)
+(define-key elixir-mode-map (kbd "M-h") 'alchemist-help-search-at-point)
+
 ;; utility functions
 (defun toggle-fullscreen ()
   "Toggle full screen on X11"
