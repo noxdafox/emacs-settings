@@ -37,6 +37,7 @@
 (bind-key* "C-<tab>" 'next-buffer)
 
 ;; region code manipulation
+(bind-key* "M-m" 'mark-paragraph)
 (bind-key* "M-r" 'replace-string)
 (bind-key* "M-c" 'comment-or-uncomment)
 
