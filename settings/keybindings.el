@@ -36,9 +36,6 @@
 ;; cycle through buffers
 (bind-key* "C-<tab>" 'next-buffer)
 
-;; show documentation at point
-(bind-key* "M-h" 'ycmd-show-documentation)
-
 ;; region code manipulation
 (bind-key* "M-r" 'replace-string)
 (bind-key* "M-c" 'comment-or-uncomment)
@@ -47,6 +44,7 @@
 (require 'ycmd)
 (require 'company)
 (define-key company-active-map (kbd "<tab>") #'company-complete)
+(define-key ycmd-mode-map (kbd "M-h") #'ycmd-show-documentation)
 (define-key ycmd-mode-map [remap complete-symbol] #'company-ycmd-complete)
 
 ;; shell mode history search
