@@ -77,6 +77,7 @@
 
 ;; Elixir mode
 (add-hook 'elixir-mode-hook 'alchemist-mode)
+(eval-after-load 'flycheck '(flycheck-credo-setup))
 
 (provide 'modes)
 ;;; modes.el ends here
