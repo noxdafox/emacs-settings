@@ -41,6 +41,10 @@
 (bind-key* "M-r" 'replace-string)
 (bind-key* "M-c" 'comment-or-uncomment)
 
+;; text scaling
+(bind-key* "C-+" 'text-scale-increase)
+(bind-key* "C--" 'text-scale-decrease)
+
 ;; company completion key
 (require 'ycmd)
 (require 'company)
