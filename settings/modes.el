@@ -28,7 +28,7 @@
 (setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args "--simple-prompt -i")
 
-;; Shell mode
+;; Comint mode
 ;; ----------
 (custom-set-variables
  '(comint-scroll-to-bottom-on-input t)  ; always insert at the bottom
@@ -37,7 +37,13 @@
  '(comint-completion-autolist t)        ; show completion list when ambiguous
  '(comint-input-ignoredups t)           ; no duplicates in command history
  '(comint-completion-addsuffix t)       ; file completion space/slash insertion
- '(comint-buffer-maximum-size 8192))    ; maximum buffer size in lines
+ '(comint-buffer-maximum-size 8192)     ; maximum buffer size in lines
+ '(comint-prompt-read-only t))          ; set comint prompt read-only
+
+(defun comint-preoutput-turn-buffer-read-only (text)
+  (propertize text 'read-only t))
+(add-hook 'comint-preoutput-filter-functions
+          'comint-preoutput-turn-buffer-read-only)
 
 ; do not override prompt colors
 (set-face-attribute 'comint-highlight-prompt nil :inherit nil)
