@@ -6,20 +6,8 @@ Personal Emacs settings
 Dependencies
 ------------
 
-Packages
-
-* jdee
-* ycmd
-* magit
-* flycheck
-* use-package
-* company-ycmd
-* column-marker
-* flycheck-ycmd
-* bash-completion
-* smart-mode-line
-
 External
 
-* ycmd
-* exuberant-ctags
+* [ycmd](https://github.com/Valloric/ycmd)
+* [credo](https://github.com/rrrene/credo)
+* [exuberant-ctags](http://ctags.sourceforge.net/)

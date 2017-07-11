@@ -11,6 +11,12 @@
  '(c-indent-level 4)
  '(c-file-style "K&R"))
 
+(defun custom-c-indentation ()
+  (c-set-offset 'arglist-intro '+))
+
+(add-hook 'c-mode-hook 'custom-c-indentation)
+(add-hook 'c++-mode-hook 'custom-c-indentation)
+
 ;; disable electric comma
 (eval-after-load "cc-mode"
   '(define-key c-mode-base-map "," nil))
@@ -83,6 +89,7 @@
 
 ;; Elixir mode
 (add-hook 'elixir-mode-hook 'alchemist-mode)
+(eval-after-load 'flycheck '(flycheck-credo-setup))
 
 (provide 'modes)
 ;;; modes.el ends here

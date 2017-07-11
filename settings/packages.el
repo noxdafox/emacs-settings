@@ -22,5 +22,6 @@
 (package-install 'company-ycmd)
 (package-install 'flycheck)
 (package-install 'flycheck-ycmd)
+(package-install 'flycheck-credo)
 
 (provide 'packages)
