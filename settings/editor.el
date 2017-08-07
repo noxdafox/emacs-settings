@@ -25,6 +25,11 @@
 
 ;; Linum
 (require 'linum)
+(setq linum-disabled-modes-list '(shell-mode org-mode compilation-mode))
+(defun linum-on ()
+  (unless (or (minibufferp)
+              (member major-mode linum-disabled-modes-list))
+    (linum-mode 1)))
 (global-linum-mode t)
 
 ;; Modern scrolling
