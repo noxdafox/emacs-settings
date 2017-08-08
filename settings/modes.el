@@ -5,7 +5,6 @@
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 
 ;; C/C++ Mode
-;; ----------
 (custom-set-variables
  '(c-basic-offset 4)
  '(c-indent-level 4)
@@ -22,20 +21,18 @@
   '(define-key c-mode-base-map "," nil))
 
 ;; Python Mode
-;; -----------
-;; override syntax checker, use pylint
+; override syntax checker, use pylint
 (require 'flycheck)
 (add-hook 'python-mode-hook
           (lambda () (add-to-list 'flycheck-disabled-checkers 'ycmd)))
 (add-hook 'python-mode-hook 'flycheck-mode)
 (setq flycheck-python-pylint-executable "pylint3")
 
-;; ipython interpreter
+; ipython interpreter
 (setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args "--simple-prompt -i")
 
 ;; Comint mode
-;; ----------
 (custom-set-variables
  '(comint-scroll-to-bottom-on-input t)  ; always insert at the bottom
  '(comint-scroll-to-bottom-on-output t) ; always add output at the bottom
@@ -75,7 +72,6 @@
   (goto-char (point-max)))
 
 ;; TeX Mode
-;; --------
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-PDF-mode t)
@@ -90,6 +86,23 @@
 ;; Elixir mode
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (eval-after-load 'flycheck '(flycheck-credo-setup))
+
+;; Org mode
+(require 'org)
+(setq org-log-done 'time)
+(setq org-directory "~/documents/org/")
+(setq org-agenda-files (list org-directory))
+(setq org-default-todo-file (concat org-directory "todo.org"))
+(setq org-default-notes-file (concat org-directory "notes.org"))
+(setq org-todo-keywords '((sequence "TODO" "|" "DONE" "TRASHED")))
+(setq org-capture-templates
+      '(("t" "Todo" entry (file org-default-todo-file)
+         "* TODO %?\n  %i\n  %a")))
+; Make windmove work in org-mode:
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
 
 (provide 'modes)
 ;;; modes.el ends here

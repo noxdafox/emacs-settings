@@ -45,6 +45,10 @@
 (bind-key* "C-+" 'text-scale-increase)
 (bind-key* "C--" 'text-scale-decrease)
 
+;; org mode
+(bind-key* "C-c a" 'org-agenda)
+(bind-key* "C-c c" 'org-capture)
+
 ;; company completion key
 (require 'ycmd)
 (require 'company)
