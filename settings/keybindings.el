@@ -48,6 +48,7 @@
 ;; org mode
 (bind-key* "C-c a" 'org-agenda)
 (bind-key* "C-c c" 'org-capture)
+(bind-key* "C-c l" 'org-store-link)
 
 ;; company completion key
 (require 'ycmd)

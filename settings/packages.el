@@ -11,9 +11,9 @@
 ;; dependencies
 (package-install 'jdee)
 (package-install 'magit)
+(package-install 'erlang)
 (package-install 'ggtags)
 (package-install 'alchemist)
-(package-install 'yaml-mode)
 (package-install 'use-package)
 (package-install 'column-marker)
 (package-install 'bash-completion)
