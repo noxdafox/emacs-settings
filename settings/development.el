@@ -16,21 +16,6 @@
 (global-company-mode t)
 (set 'company-idle-delay 0.1)
 
-;; temporary fix for Ycmd + CompAny
-;; https://github.com/abingham/emacs-ycmd/pull/431
-(defun company-ycmd--construct-candidate-python (candidate)
-  "Construct completion string from a CANDIDATE for python file-types."
-  (company-ycmd--with-destructured-candidate candidate
-    (let* ((kind (s-replace "\n" " " .extra_menu_info))
-           (params (and (s-prefix-p "function" kind)
-                        (company-ycmd--extract-params-python
-                         .detailed_info .insertion_text)))
-           (meta (company-ycmd--extract-meta-python .detailed_info))
-           (filepath .extra_data.location.filepath)
-           (line-num .extra_data.location.line_num))
-      (propertize .insertion_text 'meta meta 'doc .detailed_info 'kind kind
-                  'params params 'filepath filepath 'line_num line-num))))
-
 ;; flycheck syntax checker
 (require 'flycheck)
 (require 'flycheck-ycmd)
