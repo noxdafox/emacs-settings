@@ -24,5 +24,7 @@
 (package-install 'flycheck)
 (package-install 'flycheck-ycmd)
 (package-install 'flycheck-credo)
+(package-install 'all-the-icons)
+(package-install 'all-the-icons-dired)
 
 (provide 'packages)
