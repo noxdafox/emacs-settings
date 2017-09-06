@@ -70,5 +70,9 @@
 ;; disable backup for TRAMP buffers
 (setq tramp-backup-directory-alist backup-directory-alist)
 
+;; Speedbar
+(require 'sr-speedbar)
+(setq speedbar-show-unknown-files t)
+
 (provide 'editor)
 ;; editor.el ends here

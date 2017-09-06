@@ -14,6 +14,7 @@
 (package-install 'erlang)
 (package-install 'ggtags)
 (package-install 'alchemist)
+(package-install 'sr-speedbar)
 (package-install 'use-package)
 (package-install 'column-marker)
 (package-install 'bash-completion)

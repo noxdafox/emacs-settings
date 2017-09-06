@@ -50,6 +50,9 @@
 (bind-key* "C-c c" 'org-capture)
 (bind-key* "C-c l" 'org-store-link)
 
+;; toggle speedbar
+(bind-key* "<f8>" 'sr-speedbar-toggle)
+
 ;; company completion key
 (require 'ycmd)
 (require 'company)
