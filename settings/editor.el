@@ -1,7 +1,7 @@
 ;; Emacs Editing configurations
 
 ;; Font
-(set-frame-font "Inconsolata-12")
+(set-frame-font "Inconsolata-12" t t)
 
 ;; minimal ide
 (custom-set-variables
