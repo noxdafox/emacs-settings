@@ -74,5 +74,9 @@
 (require 'sr-speedbar)
 (setq speedbar-show-unknown-files t)
 
+;; Open the shell in the same window
+(add-to-list 'display-buffer-alist
+             `(,(regexp-quote "*shell") display-buffer-same-window))
+
 (provide 'editor)
 ;; editor.el ends here
