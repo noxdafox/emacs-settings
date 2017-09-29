@@ -13,6 +13,8 @@
 (package-install 'magit)
 (package-install 'erlang)
 (package-install 'ggtags)
+(package-install 'rust-mode)
+(package-install 'yaml-mode)
 (package-install 'alchemist)
 (package-install 'sr-speedbar)
 (package-install 'use-package)
