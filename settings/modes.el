@@ -104,6 +104,11 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+;; Rust mode
+(setq rust_src_path "/usr/lib/rustlib/src/")
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+(add-hook 'rust-mode-hook (lambda () (column-marker-1 90)))
+
 ;; Icons mode for Dired
 (require 'all-the-icons)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)

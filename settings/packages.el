@@ -26,6 +26,7 @@
 (package-install 'company-ycmd)
 (package-install 'flycheck)
 (package-install 'flycheck-ycmd)
+(package-install 'flycheck-rust)
 (package-install 'flycheck-credo)
 (package-install 'all-the-icons)
 (package-install 'all-the-icons-dired)
