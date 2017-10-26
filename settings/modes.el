@@ -113,5 +113,11 @@
 (require 'all-the-icons)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+;; nXML mode
+(require 'nxml-mode)
+(defun format-xml ()
+  (interactive)
+  (execute-kbd-macro (kbd "M-% > < RET > C-q C-j < RET ! C-M-\\")))
+
 (provide 'modes)
 ;;; modes.el ends here
