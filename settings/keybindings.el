@@ -53,6 +53,9 @@
 ;; toggle speedbar
 (bind-key* "<f8>" 'sr-speedbar-toggle)
 
+;; special characters
+(bind-key* "C-S-l" 'lambda-character)
+
 ;; company completion key
 (require 'ycmd)
 (require 'company)
@@ -170,5 +173,9 @@
   (if (use-region-p)
       (kill-ring-save (region-beginning) (region-end))
     (kill-ring-save (beginning-of-thing 'symbol) (end-of-thing 'symbol))))
+
+(defun lambda-character ()
+  (interactive)
+  (insert "λ"))
 
 (provide 'keybindings)
