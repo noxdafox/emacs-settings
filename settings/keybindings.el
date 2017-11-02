@@ -56,7 +56,7 @@
 ;; special characters
 (bind-key* "C-S-l" 'lambda-character)
 
-;; company completion key
+;; company/ycm completion and documentation
 (require 'ycmd)
 (require 'company)
 (define-key company-active-map (kbd "<tab>") #'company-complete)
@@ -77,6 +77,11 @@
 ;; lisp mode documentation
 (define-key lisp-mode-map (kbd "M-h") 'describe-symbol)
 (define-key emacs-lisp-mode-map (kbd "M-h") 'describe-symbol)
+
+;; racket mode documentation
+(require 'racket-mode)
+(define-key racket-mode-map (kbd "M-h") 'racket-describe)
+(define-key racket-repl-mode-map (kbd "M-h") 'racket-describe)
 
 ;; elixir mode alchemist documentation
 (require 'alchemist)
