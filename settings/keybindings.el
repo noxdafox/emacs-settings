@@ -54,7 +54,11 @@
 (bind-key* "<f8>" 'sr-speedbar-toggle)
 
 ;; special characters
-(bind-key* "C-S-l" 'lambda-character)
+(bind-key* (kbd "C-<f6>") 'characters-map)
+(progn
+  (define-prefix-command 'characters-map)
+  (define-key characters-map (kbd "l") 'lambda-character)
+  )
 
 ;; company/ycm completion and documentation
 (require 'ycmd)
