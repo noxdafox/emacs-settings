@@ -54,7 +54,7 @@
 (bind-key* "<f8>" 'sr-speedbar-toggle)
 
 ;; special characters
-(bind-key* (kbd "C-<f6>") 'characters-map)
+(bind-key* (kbd "C-a") 'characters-map)
 (progn
   (define-prefix-command 'characters-map)
   (define-key characters-map (kbd "l") 'lambda-character)
