@@ -7,6 +7,8 @@
                       ("melpa" . "https://melpa.org/packages/"))))
 
 (package-initialize)
+(when (not package-archive-contents)
+    (package-list-packages))
 
 ;; dependencies
 (package-install 'jdee)
@@ -16,6 +18,7 @@
 (package-install 'rust-mode)
 (package-install 'yaml-mode)
 (package-install 'alchemist)
+(package-install 'racket-mode)
 (package-install 'sr-speedbar)
 (package-install 'use-package)
 (package-install 'column-marker)
