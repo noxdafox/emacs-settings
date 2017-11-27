@@ -13,6 +13,7 @@
 ;; dependencies
 (package-install 'jdee)
 (package-install 'magit)
+(package-install 'geiser)
 (package-install 'erlang)
 (package-install 'ggtags)
 (package-install 'rust-mode)

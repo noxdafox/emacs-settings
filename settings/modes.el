@@ -119,5 +119,9 @@
   (interactive)
   (execute-kbd-macro (kbd "M-% > < RET > C-q C-j < RET ! C-M-\\")))
 
+;; Guile Mode
+(require 'geiser)
+(add-hook 'scheme-mode-hook 'geiser-mode)
+
 (provide 'modes)
 ;;; modes.el ends here
