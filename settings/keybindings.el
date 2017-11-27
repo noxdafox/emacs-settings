@@ -91,9 +91,13 @@
 (require 'alchemist)
 (define-key elixir-mode-map (kbd "M-h") 'alchemist-help-search-at-point)
 
+;; geiser start REPL and compile
+(require 'geiser-mode)
+(define-key geiser-mode-map (kbd "C-c C-k") 'geiser-run-and-compile)
+
 ;; utility functions
 (defun toggle-fullscreen ()
-  "Toggle full screen on X11"
+  "Toggle full screen on X11."
   (interactive)
   (when (eq window-system 'x)
     (set-frame-parameter
@@ -186,5 +190,14 @@
 (defun lambda-character ()
   (interactive)
   (insert "λ"))
+
+(defun geiser-run-and-compile ()
+  "Start the REPL if not running before compiling."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (unless (geiser-repl--connection*)
+      (call-interactively 'run-geiser))
+    (set-buffer buffer)
+    (geiser-compile-current-buffer)))
 
 (provide 'keybindings)

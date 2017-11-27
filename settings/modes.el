@@ -122,6 +122,7 @@
 ;; Guile Mode
 (require 'geiser)
 (add-hook 'scheme-mode-hook 'geiser-mode)
+(setq geiser-repl-use-other-window nil)
 
 (provide 'modes)
 ;;; modes.el ends here
