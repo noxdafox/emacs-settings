@@ -15,12 +15,6 @@
 (custom-set-variables
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
-;; import environment variables
-(exec-path-from-shell-initialize)
-(exec-path-from-shell-copy-env "PYTHONPATH")
-(exec-path-from-shell-copy-env "DEVELOPMENT")
-(exec-path-from-shell-copy-env "GUILE_LOAD_PATH")
-
 ;; Interactively Do Things mode
 (require 'ido)
 (ido-mode t)

@@ -33,6 +33,5 @@
 (package-install 'flycheck-credo)
 (package-install 'all-the-icons)
 (package-install 'all-the-icons-dired)
-(package-install 'exec-path-from-shell)
 
 (provide 'packages)
