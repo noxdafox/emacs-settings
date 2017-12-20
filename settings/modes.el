@@ -89,6 +89,7 @@
 
 ;; Org mode
 (require 'org)
+(make-directory "~/documents/org/" t)
 (setq org-log-done 'time)
 (setq org-directory "~/documents/org/")
 (setq org-agenda-files (list org-directory))
