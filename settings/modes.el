@@ -125,5 +125,9 @@
 (add-hook 'scheme-mode-hook 'geiser-mode)
 (setq geiser-repl-use-other-window nil)
 
+;; Racket mode
+(require 'racket-mode)
+(add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
+
 (provide 'modes)
 ;;; modes.el ends here
