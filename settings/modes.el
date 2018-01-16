@@ -30,7 +30,9 @@
 
 ; ipython interpreter
 (setq python-shell-interpreter "ipython3"
-      python-shell-interpreter-args "-i")
+      python-shell-interpreter-args
+      (string-join '("-i " "--TerminalIPythonApp.interactive_shell_class"
+                     "=" "rlipython.TerminalInteractiveShell") ""))
 
 ;; Comint mode
 (custom-set-variables
