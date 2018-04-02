@@ -23,8 +23,6 @@
 ;; Python Mode
 ; override syntax checker, use pylint
 (require 'flycheck)
-(add-hook 'python-mode-hook
-          (lambda () (add-to-list 'flycheck-disabled-checkers 'ycmd)))
 (add-hook 'python-mode-hook 'flycheck-mode)
 (setq flycheck-python-pylint-executable "pylint3")
 
