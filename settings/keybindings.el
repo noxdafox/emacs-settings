@@ -2,8 +2,9 @@
 
 (require 'use-package)
 
-;; navigate through windows with shift + arrow keys
+;; navigate through frames and windows
 (windmove-default-keybindings)
+(bind-key* "<backtab>" 'other-frame)
 
 ;; F11 to toggle full screen
 (bind-key* "<f11>" 'toggle-fullscreen)
