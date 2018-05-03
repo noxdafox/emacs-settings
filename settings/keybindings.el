@@ -7,7 +7,7 @@
 (bind-key* "<backtab>" 'other-frame)
 
 ;; F11 to toggle full screen
-(bind-key* "<f11>" 'toggle-fullscreen)
+(bind-key* "<f11>" 'toggle-frame-fullscreen)
 
 ;; make cursor movement keys under right hand's home-row.
 (bind-key* "M-i" 'previous-line)
