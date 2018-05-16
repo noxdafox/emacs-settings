@@ -9,6 +9,9 @@
 ;; F11 to toggle full screen
 (bind-key* "<f11>" 'toggle-frame-fullscreen)
 
+;; FlySpell correction
+(bind-key* "C-l" 'flyspell-correct-word-before-point)
+
 ;; make cursor movement keys under right hand's home-row.
 (bind-key* "M-i" 'previous-line)
 (bind-key* "M-j" 'backward-char)
