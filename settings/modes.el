@@ -106,6 +106,7 @@
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
 (require 'flyspell)
+(setq ispell-dictionary "en_GB")
 (add-hook 'rst-mode-hook 'flyspell-mode)
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
