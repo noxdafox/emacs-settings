@@ -61,11 +61,7 @@
 (bind-key* "C-x r" 'force-revert-buffer)
 
 ;; special characters
-(bind-key* (kbd "C-a") 'characters-map)
-(progn
-  (define-prefix-command 'characters-map)
-  (define-key characters-map (kbd "l") 'lambda-character)
-  )
+(bind-key* (kbd "C-a") 'special-character)
 
 ;; company/ycm completion and documentation
 (require 'ycmd)
@@ -194,9 +190,11 @@
       (kill-ring-save (region-beginning) (region-end))
     (kill-ring-save (beginning-of-thing 'symbol) (end-of-thing 'symbol))))
 
-(defun lambda-character ()
-  (interactive)
-  (insert "λ"))
+(defun special-character (s)
+  "Insert a special character according to its type"
+  (interactive "sInput special character: ")
+  (cond ((string= s "l") (insert "λ"))
+        ((string= s "t") (insert "™"))))
 
 (defun geiser-run-and-compile ()
   "Start the REPL if not running before compiling."
@@ -206,5 +204,10 @@
       (call-interactively 'run-geiser))
     (set-buffer buffer)
     (geiser-compile-current-buffer)))
+
+(defun force-revert-buffer ()
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer :ignore-auto :noconfirm))
 
 (provide 'keybindings)
