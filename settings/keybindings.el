@@ -57,6 +57,9 @@
 ;; toggle speedbar
 (bind-key* "<f8>" 'sr-speedbar-toggle)
 
+;; force the reload of a buffer
+(bind-key* "C-x r" 'force-revert-buffer)
+
 ;; special characters
 (bind-key* (kbd "C-a") 'characters-map)
 (progn
