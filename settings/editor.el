@@ -78,5 +78,9 @@
 (add-to-list 'display-buffer-alist
              `(,(regexp-quote "*shell") display-buffer-same-window))
 
+;; Enable *case-region functions
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
 (provide 'editor)
 ;; editor.el ends here
