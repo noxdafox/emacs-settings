@@ -16,6 +16,9 @@
 (global-company-mode t)
 (set 'company-idle-delay 0.1)
 
+;; Enable line-number-mode when developing
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
 ;; flycheck syntax checker
 (require 'flycheck)
 (require 'flycheck-ycmd)
