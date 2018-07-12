@@ -105,6 +105,12 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+(require 'flyspell)
+(setq ispell-dictionary "en_GB")
+(add-hook 'rst-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+
 ;; Rust mode
 (setq rust_src_path "/usr/lib/rustlib/src/")
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
