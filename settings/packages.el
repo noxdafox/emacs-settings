@@ -27,6 +27,7 @@
 (package-install 'ycmd)
 (package-install 'company)
 (package-install 'company-ycmd)
+(package-install 'company-childframe)
 (package-install 'flycheck)
 (package-install 'flycheck-ycmd)
 (package-install 'flycheck-rust)
