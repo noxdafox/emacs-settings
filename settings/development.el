@@ -16,8 +16,8 @@
 (global-company-mode t)
 (set 'company-idle-delay 0.1)
 
-(require 'company-childframe)
-(company-childframe-mode t)
+(require 'company-posframe)
+(company-posframe-mode 1)
 
 ;; Enable line-number-mode when developing
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
