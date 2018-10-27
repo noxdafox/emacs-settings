@@ -34,9 +34,7 @@
 
 ;; Comint mode
 (custom-set-variables
- '(comint-scroll-to-bottom-on-input t)  ; always insert at the bottom
- '(comint-scroll-to-bottom-on-output t) ; always add output at the bottom
- '(comint-scroll-show-maximum-output t) ; scroll to show max possible output
+ '(comint-move-point-for-output nil)    ; disable autoscrolling
  '(comint-completion-autolist t)        ; show completion list when ambiguous
  '(comint-input-ignoredups t)           ; no duplicates in command history
  '(comint-completion-addsuffix t)       ; file completion space/slash insertion
