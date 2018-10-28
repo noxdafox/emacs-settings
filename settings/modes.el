@@ -70,9 +70,10 @@
   (goto-char (point-max)))
 
 ;; TeX Mode
+(setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
-(setq TeX-PDF-mode t)
+(setq TeX-engine 'xetex)
 (setq-default TeX-master nil)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -97,6 +98,22 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file org-default-todo-file)
          "* TODO %?\n  %i\n  %a")))
+;; Org Beamer for presentations
+(setq org-latex-pdf-process
+  '("xelatex -shell-escape -interaction nonstopmode %f"
+    "xelatex -shell-escape -interaction nonstopmode %f"))
+
+(require 'ox-latex)
+(setq org-latex-listings 'minted)
+(setq org-latex-minted-options
+      '(("frame" "none")
+	("fontsize" "\\scriptsize")
+	("linenos" "")))
+
+(add-to-list 'org-latex-minted-langs '((elixir "elixir")
+                                       (erlang "erlang")
+                                       (python "python")))
+
 ; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
 (add-hook 'org-shiftleft-final-hook 'windmove-left)
