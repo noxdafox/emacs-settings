@@ -173,7 +173,9 @@
   (interactive)
   (grep-compute-defaults)
   (rgrep (thing-at-point 'symbol t)
-         "*.py *.c *.h *.cpp"
+         (string-join '("*.[ch]" "*.cc" "*.[ch]xx" "*.[ch]pp" "*.[CHh]" "*.CC"
+                        "*.HH" "*.[ch]++" "[Mm]akefile*" "*.py" "*.erl" "*.ex"
+                        "*.exc" "*.tex" "*.sty" "*.js" "*.el") " ")
          (ido-read-directory-name "Root folder:")))
 
 (defun kill-command ()
