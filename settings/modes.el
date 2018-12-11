@@ -110,9 +110,10 @@
 	("fontsize" "\\scriptsize")
 	("linenos" "")))
 
-(add-to-list 'org-latex-minted-langs '((elixir "elixir")
+(setq org-latex-minted-langs
+      (append org-latex-minted-langs '((elixir "elixir")
                                        (erlang "erlang")
-                                       (python "python")))
+                                       (python "python"))))
 
 ; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
