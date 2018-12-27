@@ -2,19 +2,21 @@
 
 (use-package company
   :ensure t
+  :bind (:map company-active-map
+              ("<tab>" . company-complete))
   :config
   (global-company-mode t)
   (setq company-idle-delay 0.1))
 
 (use-package flycheck
   :ensure t
-  :hook (after-init-hook . global-flycheck-mode))
+  :hook (after-init . global-flycheck-mode))
 
 ;; Language Server Protocol
 (use-package lsp-mode
   :ensure t
   :commands lsp
-  :hook (python-mode-hook . lsp)
+  :hook (python-mode . lsp)
   :config
   (setq lsp-hover-enabled t)
   (setq lsp-auto-guess-root t)
@@ -30,8 +32,8 @@
 
 ;; Code navigation
 (use-package ggtags
-  :hook ((prog-mode-hook . ggtags-mode)
-         (after-save-hook . gtags-update-hook))
+  :hook ((prog-mode . ggtags-mode)
+         (after-save . gtags-update-hook)))
 
 ;; Enable line-number-mode when developing
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
