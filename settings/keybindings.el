@@ -63,13 +63,6 @@
 ;; special characters
 (bind-key* (kbd "C-a") 'special-character)
 
-;; company/ycm completion and documentation
-(require 'ycmd)
-(require 'company)
-(define-key company-active-map (kbd "<tab>") #'company-complete)
-(define-key ycmd-mode-map (kbd "M-h") #'ycmd-show-documentation)
-(define-key ycmd-mode-map [remap complete-symbol] #'company-ycmd-complete)
-
 ;; shell mode history search
 (require 'shell)
 (define-key shell-mode-map (kbd "<down>") 'comint-next-input)
@@ -163,11 +156,6 @@
       (comment-or-uncomment-region (region-beginning) (region-end))
     (comment-or-uncomment-region
      (line-beginning-position) (line-end-position))))
-
-(defun company-ycmd-complete ()
-  (interactive)
-  (let ((ycmd-force-semantic-completion t))
-    (company-complete)))
 
 (defun grep-symbol ()
   (interactive)
