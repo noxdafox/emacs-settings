@@ -79,9 +79,6 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
-;; Lisp Mode
-(setq ycmd-file-type-map (remove '(emacs-lisp-mode "elisp") ycmd-file-type-map))
-
 ;; Elixir mode
 (add-hook 'elixir-mode-hook 'alchemist-mode)
 (eval-after-load 'flycheck '(flycheck-credo-setup))
