@@ -27,6 +27,7 @@
 
 (use-package lsp-ui
   :ensure t
+  :custom (lsp-ui-sideline-enable nil)
   :commands lsp-ui-mode)
 (use-package company-lsp
   :ensure t
