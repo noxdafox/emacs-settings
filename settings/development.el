@@ -16,7 +16,9 @@
 (use-package lsp-mode
   :ensure t
   :commands lsp
-  :hook (python-mode . lsp)
+  :hook ((c-mode . lsp)
+         (c++-mode . lsp)
+         (python-mode . lsp))
   :config
   (setq lsp-hover-enabled t)
   (setq lsp-auto-guess-root t)
