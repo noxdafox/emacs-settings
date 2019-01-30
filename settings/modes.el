@@ -79,10 +79,6 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
-;; Elixir mode
-(add-hook 'elixir-mode-hook 'alchemist-mode)
-(eval-after-load 'flycheck '(flycheck-credo-setup))
-
 ;; Org mode
 (require 'org)
 (make-directory "~/documents/org/" t)
