@@ -114,6 +114,13 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+; Org Journal mode
+(use-package org-journal
+  :ensure t
+  :defer t
+  :custom
+  (org-journal-dir "~/documents/journal/"))
+
 (require 'flyspell)
 (setq ispell-dictionary "en_GB")
 (add-hook 'rst-mode-hook 'flyspell-mode)
