@@ -165,7 +165,7 @@
 ;; Elixir-ls
 (use-package lsp-elixir
   :ensure t
-  :hook (elixir-mode-hook . lsp))
+  :hook (elixir-mode . lsp))
 
 ;; Racket mode
 (use-package racket-mode

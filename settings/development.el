@@ -18,7 +18,6 @@
   :commands lsp
   :hook ((c-mode . lsp)
          (c++-mode . lsp)
-         (elixir-mode . lsp)
          (python-mode . lsp))
   :config
   (setq lsp-hover-enabled t)
