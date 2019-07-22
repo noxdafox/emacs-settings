@@ -144,7 +144,7 @@
   (setq rust_src_path "/usr/lib/rustlib/src/"))
 
 ;; Icons mode for Dired
-(use-package all-the-icons
+(use-package all-the-icons-dired
   :ensure t
   :hook ((dired-mode-hook . all-the-icons-dired-mode)))
 
@@ -161,6 +161,11 @@
   :hook ((scheme-mode-hook . geiser-mode))
   :config
   (setq geiser-repl-use-other-window nil))
+
+;; Elixir-ls
+(use-package lsp-elixir
+  :ensure t
+  :hook (elixir-mode-hook . lsp))
 
 ;; Racket mode
 (use-package racket-mode
