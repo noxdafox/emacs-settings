@@ -19,7 +19,5 @@
 
 (package-install 'magit)
 (package-install 'yaml-mode)
-(package-install 'all-the-icons)
-(package-install 'all-the-icons-dired)
 
 (provide 'packages)
