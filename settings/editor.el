@@ -11,17 +11,21 @@
  '(scroll-bar-mode nil))
 
 ;; uniquify buffer names
-(require 'uniquify)
-(custom-set-variables
- '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
+(use-package uniquify
+  :custom
+  (uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 ;; Interactively Do Things mode
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t)
+(use-package ido
+  :config
+  (ido-mode t)
+  (setq ido-enable-flex-matching t))
 
 ;; smart mode line
-(sml/setup)
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (sml/setup))
 
 ;; Modern scrolling
 (setq scroll-step 1)
@@ -36,9 +40,11 @@
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
 
 ;; column marker
-(require 'column-marker)
-(add-hook 'prog-mode-hook (lambda () (column-marker-1 80)))
-(add-hook 'prog-mode-hook (lambda () (column-marker-2 120)))
+(use-package column-marker
+  :ensure t
+  :hook ((prog-mode-hook . (lambda () (column-marker-1 80)))
+         (prog-mode-hook . (lambda () (column-marker-1 120)))
+         (elixir-mode . (lambda () (column-marker-1 98)))))
 
 ;; auto delete trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -53,17 +59,17 @@
 (setq help-window-select t)
 
 ;; TRAMP
-;; TRAMP edit remote files
-(require 'tramp)
-(setq tramp-default-method "ssh")
-;; set TRAMP autosave directory to local temp
-(setq tramp-auto-save-directory temporary-file-directory)
-;; disable backup for TRAMP buffers
-(setq tramp-backup-directory-alist backup-directory-alist)
+(use-package tramp
+  :config
+  (setq tramp-default-method "ssh")
+  (setq tramp-auto-save-directory temporary-file-directory)
+  (setq tramp-backup-directory-alist backup-directory-alist))
 
 ;; Speedbar
-(require 'sr-speedbar)
-(setq speedbar-show-unknown-files t)
+(use-package sr-speedbar
+  :ensure t
+  :config
+  (setq speedbar-show-unknown-files t))
 
 ;; Open the shell in the same window
 (add-to-list 'display-buffer-alist
