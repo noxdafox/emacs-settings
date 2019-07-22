@@ -36,13 +36,14 @@
   :ensure t
   :commands company-lsp)
 
-;; Code navigation
-(use-package ggtags
-  :hook ((prog-mode . ggtags-mode)
-         (after-save . gtags-update-hook)))
-
 ;; Enable line-number-mode when developing
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+;; Code navigation
+(use-package ggtags
+  :ensure t
+  :hook ((prog-mode . ggtags-mode)
+         (after-save . gtags-update-hook)))
 
 (defun gtags-root-dir ()
   "Return GTAGS root directory or nil if doesn't exist."
