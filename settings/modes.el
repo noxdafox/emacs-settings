@@ -1,8 +1,9 @@
 ;; Modes specific customisations
 
 ;; Lisp
-(require 'flycheck)
-(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+(use-package flycheck
+  :config
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 
 ;; C/C++ Mode
 (custom-set-variables
@@ -22,9 +23,10 @@
 
 ;; Python Mode
 ; override syntax checker, use pylint
-(require 'flycheck)
-(add-hook 'python-mode-hook 'flycheck-mode)
-(setq flycheck-python-pylint-executable "pylint3")
+(use-package flycheck
+  :hook ((python-mode-hook . flycheck-mode))
+  :config
+  (setq flycheck-python-pylint-executable "pylint3"))
 
 ; ipython interpreter
 (setq python-shell-interpreter "ipython3"
@@ -49,8 +51,10 @@
 ; do not override prompt colors
 (set-face-attribute 'comint-highlight-prompt nil :inherit nil)
 
-(require 'bash-completion)
-(bash-completion-setup)
+(use-package bash-completion
+  :ensure t
+  :config
+  (bash-completion-setup))
 
 ; automatically truncate buffer size
 (add-hook 'comint-output-filter-functions
@@ -70,43 +74,47 @@
   (goto-char (point-max)))
 
 ;; TeX Mode
-(setq TeX-PDF-mode t)
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq TeX-engine 'xetex)
-(setq-default TeX-master nil)
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(use-package tex
+  :ensure auctex
+  :hook ((LaTeX-mode-hook . visual-line-mode)
+         (LaTeX-mode-hook . flyspell-mode)
+         (LaTeX-mode-hook . LaTeX-math-mode))
+  :config
+  (setq TeX-PDF-mode t)
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq TeX-engine 'xetex)
+  (setq-default TeX-master nil))
 
 ;; Org mode
-(require 'org)
-(make-directory "~/documents/org/" t)
-(setq org-log-done 'time)
-(setq org-directory "~/documents/org/")
-(setq org-agenda-files (list org-directory))
-(setq org-default-todo-file (concat org-directory "todo.org"))
-(setq org-default-notes-file (concat org-directory "notes.org"))
-(setq org-todo-keywords '((sequence "TODO" "|" "DONE" "TRASHED")))
-(setq org-capture-templates
-      '(("t" "Todo" entry (file org-default-todo-file)
-         "* TODO %?\n  %i\n  %a")))
-;; Org Beamer for presentations
-(setq org-latex-pdf-process
-  '("xelatex -shell-escape -interaction nonstopmode %f"
-    "xelatex -shell-escape -interaction nonstopmode %f"))
+(use-package org
+  :config
+  (make-directory "~/documents/org/" t)
+  (setq org-log-done 'time)
+  (setq org-directory "~/documents/org/")
+  (setq org-agenda-files (list org-directory))
+  (setq org-default-todo-file (concat org-directory "todo.org"))
+  (setq org-default-notes-file (concat org-directory "notes.org"))
+  (setq org-todo-keywords '((sequence "TODO" "|" "DONE" "TRASHED")))
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file org-default-todo-file)
+           "* TODO %?\n  %i\n  %a")))
+  ;; Org Beamer for presentations
+  (setq org-latex-pdf-process
+        '("xelatex -shell-escape -interaction nonstopmode %f"
+          "xelatex -shell-escape -interaction nonstopmode %f")))
 
-(require 'ox-latex)
-(setq org-latex-listings 'minted)
-(setq org-latex-minted-options
-      '(("frame" "none")
-	("fontsize" "\\scriptsize")
-	("linenos" "")))
-
-(setq org-latex-minted-langs
-      (append org-latex-minted-langs '((elixir "elixir")
-                                       (erlang "erlang")
-                                       (python "python"))))
+(use-package ox-latex
+  :config
+  (setq org-latex-listings 'minted)
+  (setq org-latex-minted-options
+        '(("frame" "none")
+	  ("fontsize" "\\scriptsize")
+	  ("linenos" "")))
+  (setq org-latex-minted-langs
+        (append org-latex-minted-langs '((elixir "elixir")
+                                         (erlang "erlang")
+                                         (python "python")))))
 
 ; Make windmove work in org-mode:
 (add-hook 'org-shiftup-final-hook 'windmove-up)
@@ -121,39 +129,48 @@
   :custom
   (org-journal-dir "~/documents/journal/"))
 
-(require 'flyspell)
-(setq ispell-dictionary "en_GB")
-(add-hook 'rst-mode-hook 'flyspell-mode)
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'text-mode-hook 'flyspell-mode)
+(use-package flyspell
+  :hook ((rst-mode-hook . flyspell-mode)
+         (org-mode-hook . flyspell-mode)
+         (text-mode-hook . flyspell-mode))
+  :config
+  (setq ispell-dictionary "en_GB"))
 
 ;; Rust mode
-(setq rust_src_path "/usr/lib/rustlib/src/")
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-(add-hook 'rust-mode-hook (lambda () (column-marker-1 90)))
+(use-package rust-mode
+  :hook ((flycheck-mode-hook . flycheck-rust-setup)
+         (rust-mode-hook . (lambda () (column-marker-1 90))))
+  :config
+  (setq rust_src_path "/usr/lib/rustlib/src/"))
 
 ;; Icons mode for Dired
-(require 'all-the-icons)
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(use-package all-the-icons
+  :ensure t
+  :hook ((dired-mode-hook . all-the-icons-dired-mode)))
 
 ;; nXML mode
-(require 'nxml-mode)
-(defun format-xml ()
-  (interactive)
-  (execute-kbd-macro (kbd "M-% > < RET > C-q C-j < RET ! C-M-\\")))
+(use-package nxml-mode
+  :config
+  (defun format-xml ()
+    (interactive)
+    (execute-kbd-macro (kbd "M-% > < RET > C-q C-j < RET ! C-M-\\"))))
 
 ;; Guile Mode
-(require 'geiser)
-(add-hook 'scheme-mode-hook 'geiser-mode)
-(setq geiser-repl-use-other-window nil)
+(use-package geiser
+  :ensure t
+  :hook ((scheme-mode-hook . geiser-mode))
+  :config
+  (setq geiser-repl-use-other-window nil))
 
 ;; Racket mode
-(require 'racket-mode)
-(add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
+(use-package racket-mode
+  :ensure t
+  :mode "\\.rkt\\'")
 
 ;; Docker mode
-(require 'dockerfile-mode)
-(add-to-list 'auto-mode-alist '("\\Dockerfile" . dockerfile-mode))
+(use-package dockerfile-mode
+  :ensure t
+  :mode "\\Dockerfile")
 
 (provide 'modes)
 ;;; modes.el ends here
