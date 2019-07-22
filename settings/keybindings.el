@@ -1,7 +1,5 @@
 ;; Emacs custom key bindings
 
-(require 'use-package)
-
 ;; navigate through frames and windows
 (windmove-default-keybindings)
 (bind-key* "<backtab>" 'other-frame)
@@ -64,32 +62,41 @@
 (bind-key* (kbd "C-a") 'special-character)
 
 ;; shell mode history search
-(require 'shell)
-(define-key shell-mode-map (kbd "<down>") 'comint-next-input)
-(define-key shell-mode-map (kbd "<up>") 'comint-previous-input)
-(define-key shell-mode-map (kbd "C-r") 'comint-history-isearch-backward-regexp)
-(require 'python)
-(define-key inferior-python-mode-map (kbd "<down>") 'comint-next-input)
-(define-key inferior-python-mode-map (kbd "<up>") 'comint-previous-input)
-(define-key inferior-python-mode-map (kbd "C-r")
-  'comint-history-isearch-backward-regexp)
+(use-package shell
+  :bind (:map shell-mode-map
+              ("<down>" . comint-next-input)
+              ("<up>" . comint-previous-input)
+              ("C-r" . comint-history-isearch-backward-regexp)))
+
+(use-package python
+  :bind (:map inferior-python-mode-map
+              ("<down>" . comint-next-input)
+              ("<up>" . comint-previous-input)
+              ("C-r" . comint-history-isearch-backward-regexp)))
 
 ;; lisp mode documentation
 (define-key lisp-mode-map (kbd "M-h") 'describe-symbol)
 (define-key emacs-lisp-mode-map (kbd "M-h") 'describe-symbol)
 
 ;; racket mode documentation
-(require 'racket-mode)
-(define-key racket-mode-map (kbd "M-h") 'racket-describe)
-(define-key racket-repl-mode-map (kbd "M-h") 'racket-describe)
+(use-package racket-mode
+  :ensure t
+  :bind (:map racket-mode-map
+              ("M-h" . racket-describe)
+         :map racket-repl-mode-map
+              ("M-h" . racket-describe)))
 
 ;; elixir mode alchemist documentation
-(require 'alchemist)
-(define-key elixir-mode-map (kbd "M-h") 'alchemist-help-search-at-point)
+(use-package alchemist
+  :ensure t
+  :bind (:map elixir-mode-map
+              ("M-h" . alchemist-help-search-at-point)))
 
 ;; geiser start REPL and compile
-(require 'geiser-mode)
-(define-key geiser-mode-map (kbd "C-c C-k") 'geiser-run-and-compile)
+(use-package geiser
+  :ensure t
+  :bind (:map geiser-mode-map
+              ("C-c C-k" . geiser-run-and-compile)))
 
 ;; utility functions
 (defun toggle-fullscreen ()
