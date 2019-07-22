@@ -6,33 +6,20 @@
  '(package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                       ("melpa" . "https://melpa.org/packages/"))))
 
-(when (not package-archive-contents)
-    (package-list-packages))
+(package-initialize)
 
-;; dependencies
-(package-install 'jdee)
+(unless package-archive-contents
+    (package-refresh-contents))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
 (package-install 'magit)
-(package-install 'geiser)
-(package-install 'erlang)
-(package-install 'ggtags)
-(package-install 'rust-mode)
 (package-install 'yaml-mode)
-(package-install 'alchemist)
-(package-install 'racket-mode)
-(package-install 'sr-speedbar)
-(package-install 'use-package)
-(package-install 'column-marker)
-(package-install 'bash-completion)
-(package-install 'smart-mode-line)
-(package-install 'lsp-mode)
-(package-install 'lsp-ui)
-(package-install 'company)
-(package-install 'company-lsp)
-(package-install 'flycheck)
-(package-install 'flycheck-rust)
-(package-install 'flycheck-credo)
 (package-install 'all-the-icons)
 (package-install 'all-the-icons-dired)
-(package-install 'dockerfile-mode)
 
 (provide 'packages)
