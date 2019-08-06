@@ -36,6 +36,7 @@
 
 ;; Comint mode
 (custom-set-variables
+ '(comint-scroll-to-bottom-on-input t)  ; scroll to bottom on input
  '(comint-move-point-for-output nil)    ; disable autoscrolling
  '(comint-completion-autolist t)        ; show completion list when ambiguous
  '(comint-input-ignoredups t)           ; no duplicates in command history
