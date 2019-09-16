@@ -24,9 +24,7 @@
   (setq lsp-auto-guess-root t)
   (setq lsp-signature-enabled t)
   (setq lsp-enable-snippet nil)
-  (setq lsp-prefer-flymake nil)
-  :custom (lsp-clients-elixir-server-executable
-           "/home/noxdafox/development/elixir-ls/release/language_server.sh"))
+  (setq lsp-prefer-flymake nil))
 
 (use-package lsp-ui
   :ensure t
