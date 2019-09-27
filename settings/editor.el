@@ -27,6 +27,17 @@
   :config
   (sml/setup))
 
+;; pretty icons
+(use-package all-the-icons
+  :ensure t)
+(use-package all-the-icons-dired
+  :ensure t)
+
+;; modeline
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+
 ;; Modern scrolling
 (setq scroll-step 1)
 (setq auto-window-vscroll nil)
