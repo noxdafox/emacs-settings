@@ -18,6 +18,5 @@
   (require 'use-package))
 
 (package-install 'magit)
-(package-install 'yaml-mode)
 
 (provide 'packages)

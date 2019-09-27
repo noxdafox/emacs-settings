@@ -203,5 +203,11 @@
   :ensure t
   :mode "\\Dockerfile")
 
+(use-package json-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
 (provide 'modes)
 ;;; modes.el ends here
