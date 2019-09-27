@@ -17,6 +17,4 @@
 (eval-when-compile
   (require 'use-package))
 
-(package-install 'magit)
-
 (provide 'packages)

@@ -8,6 +8,9 @@
   (global-company-mode t)
   (setq company-idle-delay 0.1))
 
+(use-package magit
+  :ensure t)
+
 (use-package flycheck
   :ensure t
   :hook (after-init . global-flycheck-mode))
