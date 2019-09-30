@@ -59,13 +59,6 @@
 (setq-default indent-tabs-mode nil)
 (global-set-key (kbd ",") (lambda() (interactive) (insert ", ")))
 
-;; column marker
-(use-package column-marker
-  :ensure t
-  :hook ((prog-mode-hook . (lambda () (column-marker-1 80)))
-         (prog-mode-hook . (lambda () (column-marker-1 120)))
-         (elixir-mode . (lambda () (column-marker-1 98)))))
-
 ;; auto delete trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
