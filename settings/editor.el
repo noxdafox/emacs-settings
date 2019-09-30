@@ -1,6 +1,6 @@
 ;; Emacs Editing configurations
 
-;; Font
+;; font
 (set-frame-font "Inconsolata-12" t t)
 
 ;; theme
@@ -36,7 +36,16 @@
 (use-package doom-modeline
   :ensure t
   :defer t
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (doom-modeline-def-modeline 'custom-modeline
+    '(bar matches buffer-info remote-host buffer-position selection-info)
+    '(misc-info lsp minor-modes input-method process vcs checker)))
+
+(defun setup-custom-doom-modeline ()
+  (doom-modeline-set-modeline 'custom-modeline 'default))
+
+(add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline)
 
 ;; Modern scrolling
 (setq scroll-step 1)
