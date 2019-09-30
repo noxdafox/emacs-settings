@@ -21,12 +21,6 @@
   (ido-mode t)
   (setq ido-enable-flex-matching t))
 
-;; smart mode line
-(use-package smart-mode-line
-  :ensure t
-  :config
-  (sml/setup))
-
 ;; pretty icons
 (use-package all-the-icons
   :ensure t)
@@ -36,6 +30,7 @@
 ;; modeline
 (use-package doom-modeline
   :ensure t
+  :defer t
   :hook (after-init . doom-modeline-mode))
 
 ;; Modern scrolling
