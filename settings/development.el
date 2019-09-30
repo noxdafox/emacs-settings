@@ -9,7 +9,9 @@
   (setq company-idle-delay 0.1))
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config
+  (setq auto-revert-check-vc-info t))
 
 (use-package flycheck
   :ensure t
