@@ -3,6 +3,11 @@
 ;; Font
 (set-frame-font "Inconsolata-12" t t)
 
+;; theme
+(use-package doom-themes
+  :config
+  (load-theme 'doom-one t))
+
 ;; minimal ide
 (custom-set-variables
  '(tooltip-mode nil)
