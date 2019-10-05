@@ -40,7 +40,7 @@
   :config
   (doom-modeline-def-modeline 'custom-modeline
     '(bar matches buffer-info remote-host buffer-position selection-info)
-    '(misc-info lsp minor-modes input-method process vcs checker)))
+    '(misc-info lsp minor-modes input-method process vcs checker " ")))
 
 (defun setup-custom-doom-modeline ()
   (doom-modeline-set-modeline 'custom-modeline 'default))
