@@ -38,6 +38,7 @@
   :defer t
   :hook (after-init . doom-modeline-mode)
   :config
+  (setq doom-modeline-buffer-file-name-style 'truncate-upto-root)
   (doom-modeline-def-modeline 'custom-modeline
     '(bar matches buffer-info remote-host buffer-position selection-info)
     '(misc-info lsp minor-modes input-method process vcs checker)))
