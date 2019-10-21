@@ -170,6 +170,7 @@
 
 ;; nXML mode
 (use-package nxml-mode
+  :defer t
   :config
   (defun format-xml ()
     (interactive)
@@ -178,7 +179,7 @@
 ;; Guile Mode
 (use-package geiser
   :ensure t
-  :hook ((scheme-mode-hook . geiser-mode))
+  :defer t
   :hook (scheme-mode . geiser-mode)
   :config
   (setq geiser-repl-use-other-window nil))
@@ -186,6 +187,7 @@
 ;; Elixir-ls
 (use-package lsp-elixir
   :ensure t
+  :defer t
   :hook (elixir-mode . lsp))
 
 ;; Racket mode
@@ -196,6 +198,7 @@
 ;; Docker mode
 (use-package dockerfile-mode
   :ensure t
+  :defer t
   :mode "\\Dockerfile")
 
 (use-package json-mode
