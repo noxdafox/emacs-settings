@@ -24,7 +24,7 @@
 ;; Python Mode
 ; override syntax checker, use pylint
 (use-package flycheck
-  :hook ((python-mode-hook . flycheck-mode))
+  :hook (python-mode . flycheck-mode)
   :config
   (setq flycheck-python-pylint-executable "pylint3"))
 
@@ -102,9 +102,10 @@
 ;; TeX Mode
 (use-package tex
   :ensure auctex
-  :hook ((LaTeX-mode-hook . visual-line-mode)
-         (LaTeX-mode-hook . flyspell-mode)
-         (LaTeX-mode-hook . LaTeX-math-mode))
+  :defer t
+  :hook ((LaTeX-mode . visual-line-mode)
+         (LaTeX-mode . flyspell-mode)
+         (LaTeX-mode . LaTeX-math-mode))
   :config
   (setq TeX-PDF-mode t)
   (setq TeX-auto-save t)
@@ -156,9 +157,9 @@
   (org-journal-dir "~/documents/journal/"))
 
 (use-package flyspell
-  :hook ((rst-mode-hook . flyspell-mode)
-         (org-mode-hook . flyspell-mode)
-         (text-mode-hook . flyspell-mode))
+  :hook ((rst-mode . flyspell-mode)
+         (org-mode . flyspell-mode)
+         (text-mode . flyspell-mode))
   :config
   (setq ispell-dictionary "en_GB"))
 
@@ -172,7 +173,7 @@
 ;; Icons mode for Dired
 (use-package all-the-icons-dired
   :ensure t
-  :hook ((dired-mode-hook . all-the-icons-dired-mode)))
+  :hook (dired-mode . all-the-icons-dired-mode))
 
 ;; nXML mode
 (use-package nxml-mode
@@ -185,6 +186,7 @@
 (use-package geiser
   :ensure t
   :hook ((scheme-mode-hook . geiser-mode))
+  :hook (scheme-mode . geiser-mode)
   :config
   (setq geiser-repl-use-other-window nil))
 
