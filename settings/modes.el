@@ -26,7 +26,7 @@
 (use-package flycheck
   :hook (python-mode . flycheck-mode)
   :config
-  (setq flycheck-python-pylint-executable "pylint3"))
+  (setq flycheck-python-pylint-executable "pylint"))
 
 ; ipython interpreter
 (setq python-shell-interpreter "ipython3"
