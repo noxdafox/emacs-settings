@@ -163,13 +163,6 @@
   :config
   (setq ispell-dictionary "en_GB"))
 
-;; Rust mode
-(use-package rust-mode
-  :hook ((flycheck-mode-hook . flycheck-rust-setup)
-         (rust-mode-hook . (lambda () (column-marker-1 90))))
-  :config
-  (setq rust_src_path "/usr/lib/rustlib/src/"))
-
 ;; Icons mode for Dired
 (use-package all-the-icons-dired
   :ensure t
