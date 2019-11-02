@@ -8,10 +8,6 @@
  '(inhibit-startup-screen t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
-;; load theme
-(load-theme 'tango-dark t)
-(load-theme 'tango-dark-overrides t)
-
 ;; load .emacs.d files
 (add-to-list 'load-path "~/.emacs.d/settings/")
 
