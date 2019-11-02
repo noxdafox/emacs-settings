@@ -33,7 +33,9 @@
 
 (use-package lsp-ui
   :ensure t
-  :custom (lsp-ui-sideline-enable nil)
+  :custom
+  (lsp-ui-sideline-enable nil)
+  (lsp-ui-doc-max-height 10)
   :commands lsp-ui-mode)
 (use-package company-lsp
   :ensure t
