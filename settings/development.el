@@ -35,7 +35,8 @@
   :ensure t
   :custom
   (lsp-ui-sideline-enable nil)
-  (lsp-ui-doc-max-height 10)
+  (lsp-ui-doc-position 'at-point)
+  (lsp-ui-doc-include-signature t)
   :commands lsp-ui-mode)
 (use-package company-lsp
   :ensure t
