@@ -23,13 +23,14 @@
   :commands lsp
   :hook ((c-mode . lsp)
          (c++-mode . lsp)
+         (elixir-mode . lsp)
          (python-mode . lsp))
   :config
-  (setq lsp-hover-enabled t)
   (setq lsp-auto-guess-root t)
-  (setq lsp-signature-enabled t)
   (setq lsp-enable-snippet nil)
-  (setq lsp-prefer-flymake nil))
+  (setq-default lsp-pylsp-plugins-pylint-enabled t)
+  (setq-default lsp-pylsp-plugins-flake8-enabled nil)
+  (setq-default lsp-pylsp-plugins-pydocstyle-enabled nil))
 
 (use-package lsp-ui
   :ensure t
