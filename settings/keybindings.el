@@ -51,6 +51,7 @@
 (bind-key* "C-c a" 'org-agenda)
 (bind-key* "C-c c" 'org-capture)
 (bind-key* "C-c l" 'org-store-link)
+(bind-key* "C-S-y" 'org-download-clipboard)
 
 ;; toggle speedbar
 (bind-key* "<f8>" 'sr-speedbar-toggle)

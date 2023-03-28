@@ -149,6 +149,13 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+; Org screenshots
+(use-package org-download
+  :ensure t
+  :config
+  (setq-default org-download-image-dir "./images")
+  (setq-default org-download-heading-lvl nil))
+
 ; Org Journal mode
 (use-package org-journal
   :ensure t
