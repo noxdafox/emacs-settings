@@ -9,6 +9,13 @@
   :config
   (load-theme 'doom-one t))
 
+; Toggle light and dark theme
+(defun toggle-theme ()
+  (interactive)
+  (pcase (car custom-enabled-themes)
+         ('doom-one (load-theme 'doom-one-light t t))
+         ('doom-one-light (load-theme 'doom-one t t))))
+
 ;; minimal ide
 (custom-set-variables
  '(tooltip-mode nil)
