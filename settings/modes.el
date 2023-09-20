@@ -191,12 +191,6 @@
   :config
   (setq geiser-repl-use-other-window nil))
 
-;; Elixir-ls
-(use-package lsp-elixir
-  :ensure t
-  :defer t
-  :hook (elixir-mode . lsp))
-
 ;; Racket mode
 (use-package racket-mode
   :ensure t

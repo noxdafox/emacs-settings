@@ -36,12 +36,12 @@
   :ensure t
   :custom
   (lsp-ui-sideline-enable nil)
+  (lsp-ui-doc-delay 2)
   (lsp-ui-doc-position 'at-point)
   (lsp-ui-doc-include-signature t)
+  (lsp-ui-doc-show-with-cursor t)
+  (lsp-ui-doc-show-with-mouse nil)
   :commands lsp-ui-mode)
-(use-package company-lsp
-  :ensure t
-  :commands company-lsp)
 
 ;; Enable line-number-mode when developing
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
