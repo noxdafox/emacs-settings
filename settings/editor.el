@@ -13,8 +13,8 @@
 (defun toggle-theme ()
   (interactive)
   (pcase (car custom-enabled-themes)
-         ('doom-one (load-theme 'doom-one-light t t))
-         ('doom-one-light (load-theme 'doom-one t t))))
+         ('doom-one (load-theme 'doom-one-light t))
+         ('doom-one-light (load-theme 'doom-one t))))
 
 ;; minimal ide
 (custom-set-variables
