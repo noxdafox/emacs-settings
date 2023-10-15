@@ -107,10 +107,10 @@
          (LaTeX-mode . flyspell-mode)
          (LaTeX-mode . LaTeX-math-mode))
   :config
-  (setq TeX-PDF-mode t)
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
-  (setq TeX-engine 'xetex)
+  (setq-default TeX-PDF-mode t)
+  (setq-default TeX-engine 'xetex)
   (setq-default TeX-master nil))
 
 ;; Org mode
