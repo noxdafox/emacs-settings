@@ -1,10 +1,5 @@
 ;; Modes specific customisations
 
-;; Lisp
-(use-package flycheck
-  :config
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
-
 ;; C/C++ Mode
 (custom-set-variables
  '(c-basic-offset 4)
@@ -22,12 +17,6 @@
   '(define-key c-mode-base-map "," nil))
 
 ;; Python Mode
-; override syntax checker, use pylint
-(use-package flycheck
-  :hook (python-mode . flycheck-mode)
-  :config
-  (setq flycheck-python-pylint-executable "pylint"))
-
 ; ipython interpreter
 (setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args

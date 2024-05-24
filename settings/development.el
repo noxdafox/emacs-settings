@@ -15,6 +15,9 @@
 
 (use-package flycheck
   :ensure t
+  :config
+  (setq flycheck-python-pylint-executable "pylint")
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :hook (after-init . global-flycheck-mode))
 
 ;; Language Server Protocol
@@ -26,6 +29,7 @@
          (elixir-mode . lsp)
          (python-mode . lsp))
   :config
+  (setq lsp-lens-enable nil)
   (setq lsp-auto-guess-root t)
   (setq lsp-enable-snippet nil)
   (setq-default lsp-pylsp-plugins-pylint-enabled t)
