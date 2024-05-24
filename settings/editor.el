@@ -56,6 +56,18 @@
 
 (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline)
 
+;; Tree Sitter
+(use-package tree-sitter
+  :ensure t
+  :defer t
+  :hook (((c-mode c++-mode python-mode) . tree-sitter-mode)
+         ((c-mode c++-mode python-mode) . tree-sitter-hl-mode)))
+
+(use-package tree-sitter-langs
+  :ensure t
+  :defer t
+  :after tree-sitter)
+
 ;; Modern scrolling
 (setq scroll-step 1)
 (setq auto-window-vscroll nil)
