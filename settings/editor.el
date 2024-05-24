@@ -44,7 +44,8 @@
 (use-package doom-modeline
   :ensure t
   :defer t
-  :hook (after-init . doom-modeline-mode)
+  :hook ((after-init . doom-modeline-mode)
+         (doom-modeline-mode . setup-custom-doom-modeline))
   :config
   (setq doom-modeline-buffer-file-name-style 'truncate-upto-root)
   (doom-modeline-def-modeline 'custom-modeline
@@ -53,20 +54,6 @@
 
 (defun setup-custom-doom-modeline ()
   (doom-modeline-set-modeline 'custom-modeline 'default))
-
-(add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline)
-
-;; Tree Sitter
-(use-package tree-sitter
-  :ensure t
-  :defer t
-  :hook (((c-mode c++-mode python-mode) . tree-sitter-mode)
-         ((c-mode c++-mode python-mode) . tree-sitter-hl-mode)))
-
-(use-package tree-sitter-langs
-  :ensure t
-  :defer t
-  :after tree-sitter)
 
 ;; Modern scrolling
 (setq scroll-step 1)

@@ -20,6 +20,17 @@
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :hook (after-init . global-flycheck-mode))
 
+;; Tree Sitter
+(use-package tree-sitter
+  :ensure t
+  :defer t
+  :hook (((c-mode c++-mode elixir-mode json-mode emacs-lisp-mode python-mode yaml-mode) . tree-sitter-mode)
+         ((c-mode c++-mode elixir-mode json-mode emacs-lisp-mode python-mode yaml-mode) . tree-sitter-hl-mode)))
+
+(use-package tree-sitter-langs
+  :ensure t
+  :after tree-sitter)
+
 ;; Language Server Protocol
 (use-package lsp-mode
   :ensure t
