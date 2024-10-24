@@ -16,7 +16,6 @@
 (use-package flycheck
   :ensure t
   :config
-  (setq flycheck-python-pylint-executable "pylint")
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :hook (after-init . global-flycheck-mode))
 
