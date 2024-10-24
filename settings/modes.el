@@ -18,10 +18,20 @@
 
 ;; Python Mode
 ; ipython interpreter
-(setq python-shell-interpreter "ipython3"
-      python-shell-interpreter-args
-      (string-join '("-i " "--TerminalIPythonApp.interactive_shell_class"
-                     "=" "rlipython.TerminalInteractiveShell") ""))
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-mode t)
+  (pyvenv-activate "~/.venvs/dev/"))
+
+; override syntax checker, use pylint
+(use-package flycheck
+  :hook (python-mode . flycheck-mode)
+  :config
+  (setq flycheck-python-pylint-executable "pylint"))
+
+; ipython interpreter
+(setq python-shell-interpreter "ipython")
 
 ;; Comint mode
 (custom-set-variables
