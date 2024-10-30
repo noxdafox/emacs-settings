@@ -3,6 +3,13 @@ emacs_settings
 
 Personal Emacs settings.
 
+Setup
+-----
+
+Icons:
+ * `M-x all-the-icons-install-fonts`
+ * `M-x nerd-icons-install-fonts`
+
 Dependencies
 ------------
 
