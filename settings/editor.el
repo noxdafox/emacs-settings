@@ -16,6 +16,11 @@
          ('doom-one (load-theme 'doom-one-light t))
          ('doom-one-light (load-theme 'doom-one t))))
 
+; Run SSH Add
+(defun ssh-add ()
+  (interactive)
+  (shell-command "ssh-add"))
+
 ;; minimal ide
 (custom-set-variables
  '(tooltip-mode nil)
